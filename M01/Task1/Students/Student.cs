@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Students
 {
-    class Student
+    internal class Student
     {
         private string email;
 
