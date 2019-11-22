@@ -26,14 +26,14 @@ namespace Students
 
         public Student(string email, string name = null)
         {
-            if (!IsValidEmail(email))
-            {
-                throw new ArgumentException("Email is invalid. It should be \"***.***@***.***\"", nameof(email));
-            }
-
             if (email == null)
             {
                 throw new ArgumentNullException(nameof(email));
+            }
+
+            if (!IsValidEmail(email))
+            {
+                throw new ArgumentException("Email is invalid. It should be \"***.***@***.***\"", nameof(email));
             }
 
             this.Name = name ?? GetNameFromEmail(email);
