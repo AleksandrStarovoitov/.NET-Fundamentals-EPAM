@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Students
 {
@@ -25,6 +26,11 @@ namespace Students
 
         public Student(string email, string name = null)
         {
+            if (!IsValidEmail(email))
+            {
+                throw new ArgumentException("Email is invalid. It should be \"***.***@***.***\"", nameof(email));
+            }
+
             if (email == null)
             {
                 throw new ArgumentNullException(nameof(email));
@@ -43,6 +49,12 @@ namespace Students
 
             return firstName.First().ToString().ToUpper() + firstName.Substring(1) + ' ' +
                    secondName.First().ToString().ToUpper() + secondName.Substring(1);
+        }
+
+        private static bool IsValidEmail(string email)
+        {
+            var regex = new Regex(@"^([a-z]+)\.([a-z]+)@([a-z]+)\.([a-z]+)$");
+            return regex.IsMatch(email.ToLower());
         }
 
         public override bool Equals(object obj)

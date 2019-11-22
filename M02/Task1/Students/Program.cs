@@ -11,28 +11,35 @@ namespace Students
         {
             var subjects = new[] {"Maths", "PE", "History", "Art"};
 
-            var students = new[]
+            try
             {
-                new Student("vasya.pupkin@epam.com", "Vasya Pupkin"),
-                new Student("ivan.ivanov@epam.com", "Ivan Ivanov"),
-                new Student("vlad.sokolov@epam.com", "Vlad Sokolov"),
-
-                new Student("vasya.pupkin@epam.com"),
-                new Student("ivan.ivanov@epam.com"),
-                new Student("vlad.sokolov@epam.com"),
-            };
-
-            var studentSubjectDict = new Dictionary<Student, string[]>();
-
-            rnd = new Random();
-            foreach (var student in students)
-            {
-                studentSubjectDict[student] = new[]
+                var students = new[]
                 {
-                    subjects[rnd.Next(subjects.Length)],
-                    subjects[rnd.Next(subjects.Length)],
-                    subjects[rnd.Next(subjects.Length)],
+                    new Student("vasya.pupkin@epam.com", "Vasya Pupkin"),
+                    new Student("ivan.ivanov@epam.com", "Ivan Ivanov"),
+                    new Student("vlad.sokolov@epam.com", "Vlad Sokolov"),
+
+                    new Student("vasya.pupkin@epam.com"),
+                    new Student("ivan.ivanov@epam.com"),
+                    new Student("vlad.sokolov@epam.com"),
                 };
+
+                var studentSubjectDict = new Dictionary<Student, string[]>();
+
+                rnd = new Random();
+                foreach (var student in students)
+                {
+                    studentSubjectDict[student] = new[]
+                    {
+                        subjects[rnd.Next(subjects.Length)],
+                        subjects[rnd.Next(subjects.Length)],
+                        subjects[rnd.Next(subjects.Length)],
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
     }
