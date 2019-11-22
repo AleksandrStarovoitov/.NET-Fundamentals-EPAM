@@ -23,6 +23,7 @@ namespace Performance
                     classes[i] = new C(rnd.Next(Int32.MaxValue));
                 }
             });
+            Console.WriteLine($"PrivateMemorySize64 class delta: {classDelta}");
 
             var structDelta = GetPrivateMemoryDelta(() => {
                 structs = new S[ArraySize];
@@ -32,6 +33,7 @@ namespace Performance
                     structs[i].I = rnd.Next(Int32.MaxValue);
                 }
             });
+            Console.WriteLine($"PrivateMemorySize64 struct delta: {structDelta}");
 
             Console.WriteLine($"Class delta - struct delta: {classDelta - structDelta}");
 
@@ -60,7 +62,6 @@ namespace Performance
                 {
                     var memAfter = procAfter.PrivateMemorySize64;
                     var delta = memAfter - memBefore;
-                    Console.WriteLine($"PrivateMemorySize64 delta: {delta}");
                     return delta;
                 }
             }
