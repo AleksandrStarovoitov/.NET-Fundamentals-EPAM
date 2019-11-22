@@ -13,9 +13,9 @@ namespace Students
 
             var students = new[]
             {
-                new Student("Vasya Pupkin", "vasya.pupkin@epam.com"),
-                new Student("Ivan Ivanov", "ivan.ivanov@epam.com"),
-                new Student("Vlad Sokolov", "vlad.sokolov@epam.com"),
+                new Student("vasya.pupkin@epam.com", "Vasya Pupkin"),
+                new Student("ivan.ivanov@epam.com", "Ivan Ivanov"),
+                new Student("vlad.sokolov@epam.com", "Vlad Sokolov"),
 
                 new Student("vasya.pupkin@epam.com"),
                 new Student("ivan.ivanov@epam.com"),

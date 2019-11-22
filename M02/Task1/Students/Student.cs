@@ -23,7 +23,7 @@ namespace Students
             }
         }
 
-        public Student(string name, string email)
+        public Student(string email, string name = null)
         {
             if (email == null)
             {
@@ -33,8 +33,6 @@ namespace Students
             this.Name = name ?? GetNameFromEmail(email);
             this.Email = email;
         }
-        
-        public Student(string email) : this(null, email) { }
         
         private static string GetNameFromEmail(string email)
         {
