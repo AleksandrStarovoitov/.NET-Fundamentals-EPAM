@@ -9,10 +9,10 @@ namespace Students
 
         private static void Main(string[] args)
         {
-            var subjects = new[] {"Maths", "PE", "History", "Art"};
-
             try
             {
+                var subjects = new[] { "Maths", "PE", "History", "Art" };
+
                 var students = new[]
                 {
                     new Student("vasya.pupkin@epam.com", "Vasya Pupkin"),
