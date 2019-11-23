@@ -6,19 +6,18 @@ namespace Students
     internal class Program
     {
         private static Random rnd;
+        private static string vasyaPupkinName = "Vasya Pupkin";
+        private static string ivanIvanovName = "Ivan Ivanov";
+        private static string vladSokolovName = "Vlad Sokolov";
+        private static string vasyaPupkinEmail = "vasya.pupkin@epam.com";
+        private static string ivanIvanovEmail = "ivan.ivanov@epam.com";
+        private static string vladSokolovEmail = "vlad.sokolov@epam.com";
 
         private static void Main(string[] args)
         {
             try
             {
                 var subjects = new[] { "Maths", "PE", "History", "Art" };
-
-                var vasyaPupkinName = "Vasya Pupkin";
-                var ivanIvanovName = "Ivan Ivanov";
-                var vladSokolovName = "Vlad Sokolov";
-                var vasyaPupkinEmail = "vasya.pupkin@epam.com";
-                var ivanIvanovEmail = "ivan.ivanov@epam.com";
-                var vladSokolovEmail = "vlad.sokolov@epam.com";
 
                 var students = new[]
                 {
