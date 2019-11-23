@@ -1,15 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace M03_Task1
 {
-    class Program
+    internal class Program
     {
+        private static string avgLengthInputStr = "";
+
         static void Main(string[] args)
         {
+            try
+            {
+                var avgLength = AvgWordLength.GetAvgWordLength(avgLengthInputStr);
+                Console.WriteLine($"Avg length: {avgLength}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
