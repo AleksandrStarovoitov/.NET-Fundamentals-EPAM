@@ -5,7 +5,7 @@ using System.Text;
 
 namespace M03_Task1
 {
-    internal class DoubleChars
+    internal static class DoubleChars
     {
         public static string GetDoubleCharString(string first, string second)
         {
