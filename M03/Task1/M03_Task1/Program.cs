@@ -30,8 +30,8 @@ namespace M03_Task1
                 var sum = BigNumbersSum.Sum(SumFirst, SumSecond);
                 Console.WriteLine($"Sum: {sum}");
 
-                var reverse = ReverseWords.Reverse(ReverseInput);
-                Console.WriteLine($"Reversed: {reverse}");
+                var reversed = ReverseWords.Reverse(ReverseInput);
+                Console.WriteLine($"Reversed: {reversed}");
                 
                 using (var reader = new StreamReader(inputFilePath))
                 {
