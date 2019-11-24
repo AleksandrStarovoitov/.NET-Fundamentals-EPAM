@@ -4,17 +4,24 @@ namespace M03_Task1
 {
     internal class Program
     {
-        private static string avgLengthInputStr = "test test";
+        private const string AvgLengthInput = "test te";
+        private const string DoubleCharFirst = "omg i love shrek";
+        private const string DoubleCharSecond = "o kek";
+        private const string SumFirst = "12250165209153784685228690083746175751559134784";
+        private const string SumSecond = "1225016520915378468522869008374617575155";
 
         static void Main(string[] args)
         {
             try
             {
-                var avgLength = AvgWordLength.GetAvgWordLength(avgLengthInputStr);
+                var avgLength = AvgWordLength.GetAvgWordLength(AvgLengthInput);
                 Console.WriteLine($"Avg length: {avgLength}");
 
-                var doubledCharString = DoubleChars.GetDoubleCharString("omg i love shrek", "o kek");
+                var doubledCharString = DoubleChars.GetDoubleCharString(DoubleCharFirst, DoubleCharSecond);
                 Console.WriteLine($"Doubled string: {doubledCharString}");
+
+                var sum = BigNumbersSum.Sum(SumFirst, SumSecond);
+                Console.WriteLine($"Sum: {sum}");
             }
             catch (Exception ex)
             {

@@ -9,14 +9,9 @@ namespace M03_Task1
     {
         public static string GetDoubleCharString(string first, string second)
         {
-            if (String.IsNullOrEmpty(first))
+            if (String.IsNullOrEmpty(first) || String.IsNullOrEmpty(second))
             {
-                throw new ArgumentException("First string is null or empty", nameof(first));
-            }
-
-            if (String.IsNullOrEmpty(second))
-            {
-                throw new ArgumentException("Second string is null or empty", nameof(second));
+                throw new ArgumentException("String is null or empty");
             }
 
             var hashSet = new HashSet<char>(second.Where(c => !Char.IsWhiteSpace(c)));
