@@ -10,7 +10,7 @@ namespace M03_Task1
         {
             if (String.IsNullOrEmpty(first) || String.IsNullOrEmpty(second))
             {
-                throw new ArgumentException("String is null or empty");
+                throw new ArgumentException("Null or empty input string");
             }
 
             var sb = new StringBuilder();
