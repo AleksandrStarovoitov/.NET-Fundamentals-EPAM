@@ -1,12 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace M03_Task1
 {
-    class ReverseWords
+    internal static class ReverseWords
     {
+        public static string Reverse(string input)
+        {
+            if (String.IsNullOrEmpty(input))
+            {
+                throw new ArgumentException("String is null or empty", nameof(input));
+            }
+
+            var splitInput = input.Split(' ').Reverse().ToArray();
+            return String.Join(" ", splitInput);
+        }
     }
 }
