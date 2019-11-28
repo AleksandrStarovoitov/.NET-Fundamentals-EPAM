@@ -9,7 +9,7 @@ namespace M03_Task1
         {
             if (String.IsNullOrEmpty(input))
             {
-                throw new ArgumentException("Null or empty input string", nameof(input));
+                throw new ArgumentException(Resources.Resources.NullOrEmptyExMessage, nameof(input));
             }
 
             var splitInput = input.Split(' ').Reverse().ToArray();

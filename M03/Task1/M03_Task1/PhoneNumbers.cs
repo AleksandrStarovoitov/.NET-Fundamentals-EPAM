@@ -10,7 +10,7 @@ namespace M03_Task1
         {
             if (String.IsNullOrEmpty(text))
             {
-                throw new ArgumentException("Null or empty input string", nameof(text));
+                throw new ArgumentException(Resources.Resources.NullOrEmptyExMessage, nameof(text));
             }
 
             var numbers = new List<string>();

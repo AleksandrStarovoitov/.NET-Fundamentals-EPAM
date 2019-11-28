@@ -11,7 +11,7 @@ namespace M03_Task1
         {
             if (String.IsNullOrEmpty(first) || String.IsNullOrEmpty(second))
             {
-                throw new ArgumentException("Null or empty input string");
+                throw new ArgumentException(Resources.Resources.NullOrEmptyExMessage);
             }
 
             var hashSet = new HashSet<char>(second.Where(c => !Char.IsWhiteSpace(c)));
