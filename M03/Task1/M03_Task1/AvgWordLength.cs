@@ -15,7 +15,7 @@ namespace M03_Task1
             var separators = input.Where(c => !Char.IsLetter(c)).Distinct().ToArray();
             var splitInput = input.Split(separators).Where(w => w.Length > 0);
 
-            if (splitInput.Count() == 0)
+            if (!splitInput.Any())
             {
                 throw new ArgumentException("No words in input string", nameof(input));
             }
