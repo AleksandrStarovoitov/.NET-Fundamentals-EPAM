@@ -10,6 +10,7 @@ namespace Task3.GameEntities
 
         public Player(int x, int y) : base(x, y)
         {
+            this.Speed = 1;
         }
 
         public void ConsumeBonus(Bonus bonus)

@@ -28,6 +28,11 @@ namespace Task3
                 new Apple(5,5),
                 new Bear(3,3)
             };
+
+            foreach (var character in characters)
+            {
+                character.Move(1, 2);
+            }
         }
     }
 }
