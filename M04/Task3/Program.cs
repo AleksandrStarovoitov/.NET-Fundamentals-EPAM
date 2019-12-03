@@ -24,9 +24,9 @@ namespace Task3
                 characters[0],
                 characters[1],
                 characters[2],
-                new Tree(4,4),
-                new Apple(5,5),
-                new Bear(3,3)
+                new Tree(4, 4),
+                new Apple(5, 5),
+                new Bear(3, 3)
             };
 
             foreach (var character in characters)
