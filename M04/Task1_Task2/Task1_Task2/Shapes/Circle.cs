@@ -6,12 +6,13 @@ namespace M04_Task1_and_Task2.Shapes
     {
         public Point Center { get; private set; }
         public double Radius { get; private set; }
-        
+        private const string ErrorMsg = "Radius is less than 0: {0}";
+
         public Circle(Point center, double radius)
         {
             if (radius < 0)
             {
-                throw new ArgumentException("Radius is less than 0", nameof(radius));
+                throw new ArgumentException(String.Format(ErrorMsg, radius));
             }
 
             this.Center = center;
