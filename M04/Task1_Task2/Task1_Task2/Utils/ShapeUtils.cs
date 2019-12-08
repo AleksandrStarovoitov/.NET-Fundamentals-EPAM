@@ -38,10 +38,14 @@ namespace M04_Task1_and_Task2.Utils
             var bottomUpDiff = Math.Abs(upSide - bottomSide);
             var diagsDiff = Math.Abs(diag1 - diag2);
 
-            if (leftRightDiff < Tolerance && bottomUpDiff < Tolerance &&
-                diagsDiff < Tolerance && leftLegsHypoDiff < Tolerance &&
-                rightLegsHypoDiff < Tolerance)
+            if (leftRightDiff < Tolerance && bottomUpDiff < Tolerance && diagsDiff < Tolerance)
             {
+                if (leftLegsHypoDiff > Tolerance && rightLegsHypoDiff > Tolerance)
+                {
+                    throw new ArgumentException("Arguments are in wrong order. You should enter " +
+                                                "them in clockwise or counterclockwise order.");
+                }
+
                 leftRightSide = leftSide;
                 upBottomSide = upSide;
                 return true;
