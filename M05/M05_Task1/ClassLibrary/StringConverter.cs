@@ -11,7 +11,7 @@ namespace ClassLibrary
         {
             if (logger == null)
             {
-                throw new ArgumentNullException("Logger is null", nameof(logger));
+                throw new ArgumentNullException(nameof(logger));
             }
 
             this.logger = logger;
