@@ -3,7 +3,7 @@ using NLog;
 using NUnit.Framework;
 using System;
 
-namespace ClassLibraryTests
+namespace ClassLibrary.Tests
 {
     [TestFixture]
     public class StringConverterTests

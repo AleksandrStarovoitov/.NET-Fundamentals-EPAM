@@ -9,8 +9,8 @@
     <ProjectGuid>{FF21B1C0-5F91-4E93-99A6-B2267E03A126}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClassLibraryTests</RootNamespace>
-    <AssemblyName>ClassLibraryTests</AssemblyName>
+    <RootNamespace>ClassLibrary.Tests</RootNamespace>
+    <AssemblyName>ClassLibrary.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
