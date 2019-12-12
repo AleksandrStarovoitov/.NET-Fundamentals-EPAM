@@ -13,7 +13,7 @@ namespace M07_Task2
 
         public void SendMessages()
         {
-            OnSendMessage();
+            OnSendMessage();  
         }
     }
 }
