@@ -9,12 +9,7 @@ namespace ClassLibrary
 
         public StringConverter(ILogger logger)
         {
-            if (logger == null)
-            {
-                throw new ArgumentNullException(nameof(logger));
-            }
-
-            this.logger = logger;
+            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
             this.logger.Debug("Call StringConverter constructor.");
         }
