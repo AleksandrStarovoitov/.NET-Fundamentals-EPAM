@@ -7,7 +7,7 @@ namespace M07_Task2
     {
         private double waitSeconds;
 
-        public void Subscribe(Countdown cd, double waitSeconds)
+        public void Subscribe(Countdown cd, int waitSeconds)
         {
             if (cd == null)
             {
