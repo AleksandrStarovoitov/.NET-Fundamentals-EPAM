@@ -14,6 +14,11 @@ namespace M07_Task2
                 throw new ArgumentNullException(nameof(cd));
             }
 
+            if (waitSeconds < 0)
+            {
+                throw new ArgumentException("You can't wait for negative number of seconds", nameof(waitSeconds));
+            }
+
             cd.SendMessage += Cd_SendMessage;
             this.waitSeconds = waitSeconds;
         }
