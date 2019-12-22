@@ -26,5 +26,16 @@ namespace M07_Task2.Tests
                 Throws.ArgumentNullException.
                 With.Message.EqualTo(nullExceptionMessage));
         }
+
+        [Test]
+        public void Subscribe_NegativeWaitSeconds_ThrowsArgumentException()
+        {
+            var sub1 = new TestSubscriber1();
+            var cd = new Countdown();
+
+            Assert.That(() => sub1.Subscribe(cd, -1),
+                Throws.ArgumentException.
+                With.Message.EqualTo("You can't wait for negative number of seconds.\r\nParameter name: waitSeconds"));
+        }
     }
 }

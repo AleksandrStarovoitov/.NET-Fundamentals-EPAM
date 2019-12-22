@@ -16,7 +16,7 @@ namespace M07_Task2
 
             if (waitSeconds < 0)
             {
-                throw new ArgumentException("You can't wait for negative number of seconds", nameof(waitSeconds));
+                throw new ArgumentException("You can't wait for negative number of seconds.", nameof(waitSeconds));
             }
 
             cd.SendMessage += Cd_SendMessage;
