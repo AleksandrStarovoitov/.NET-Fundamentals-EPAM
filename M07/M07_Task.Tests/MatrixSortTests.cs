@@ -7,16 +7,16 @@ namespace M07_Task.Tests
     public class MatrixSortTests
     {
         private int[][] array;
-        private System.Func<int[], int[], bool> descRowMaxCompare = 
+        private System.Func<int[], int[], bool> descRowSumCompare = 
             (first, second) => first.Sum() < second.Sum();
 
-        [OneTimeSetUp]
-        public void OneTimeSetUp()
+        [SetUp]
+        public void SetUp()
         {
             array = new int[4][]
             {
                 new int[3] { 9, 0, 1 }, //Min 0, Max 9, Sum 11
-                new int[3] { 10, 2, 2 }, //Min 2, Max 10, Sum 13
+                new int[3] { 10, 2, 1 }, //Min 1, Max 10, Sum 13
                 new int[3] { 8, 5, 6 }, //Min 5, Max 8, Sum 19
                 new int[3] { 7, 3, 4 } //Min 3, Max 7, Sum 14
             };
@@ -25,7 +25,7 @@ namespace M07_Task.Tests
         [Test]
         public void Sort_MatrixIsNull_ThrowsArgumentNullException()
         {
-            Assert.That(() => MatrixSort.Sort(null, descRowMaxCompare),
+            Assert.That(() => MatrixSort.Sort(null, descRowSumCompare),
                 Throws.ArgumentNullException.
                 With.Message.EqualTo("Value cannot be null.\r\nParameter name: matrix"));
         }
@@ -35,7 +35,7 @@ namespace M07_Task.Tests
         {
             var nullRowArray = new int[4][];
 
-            Assert.That(() => MatrixSort.Sort(nullRowArray, descRowMaxCompare),
+            Assert.That(() => MatrixSort.Sort(nullRowArray, descRowSumCompare),
                 Throws.ArgumentNullException.
                 With.Message.EqualTo("Value cannot be null.\r\nParameter name: matrix[0]"));
         }
@@ -51,13 +51,13 @@ namespace M07_Task.Tests
         [Test]
         public void Sort_DescRowSum_SortsCorrectly()
         {            
-            MatrixSort.Sort(array, descRowMaxCompare);
+            MatrixSort.Sort(array, descRowSumCompare);
 
-            var expected = array = new int[4][]
+            var expected = new int[4][]
             {
                 new int[3] { 8, 5, 6 }, //Min 5, Max 8, Sum 19
                 new int[3] { 7, 3, 4 }, //Min 3, Max 7, Sum 14
-                new int[3] { 10, 2, 2 }, //Min 2, Max 10, Sum 13
+                new int[3] { 10, 2, 1 }, //Min 1, Max 10, Sum 13
                 new int[3] { 9, 0, 1 } //Min 0, Max 9, Sum 11
             };
 
@@ -69,10 +69,10 @@ namespace M07_Task.Tests
         {
             MatrixSort.Sort(array, (first, second) => first.Sum() > second.Sum());
 
-            var expected = array = new int[4][]
+            var expected = new int[4][]
             {
                 new int[3] { 9, 0, 1 }, //Min 0, Max 9, Sum 11
-                new int[3] { 10, 2, 2 }, //Min 2, Max 10, Sum 13
+                new int[3] { 10, 2, 1 }, //Min 1, Max 10, Sum 13
                 new int[3] { 7, 3, 4 }, //Min 3, Max 7, Sum 14
                 new int[3] { 8, 5, 6 } //Min 5, Max 8, Sum 19
             };
@@ -85,9 +85,9 @@ namespace M07_Task.Tests
         {
             MatrixSort.Sort(array, (first, second) => first.Max() < second.Max());
 
-            var expected = array = new int[4][]
+            var expected = new int[4][]
             {
-                new int[3] { 10, 2, 2 }, //Min 2, Max 10, Sum 13
+                new int[3] { 10, 2, 1 }, //Min 1, Max 10, Sum 13
                 new int[3] { 9, 0, 1 }, //Min 0, Max 9, Sum 11
                 new int[3] { 8, 5, 6 }, //Min 5, Max 8, Sum 19
                 new int[3] { 7, 3, 4 } //Min 3, Max 7, Sum 14
@@ -101,12 +101,12 @@ namespace M07_Task.Tests
         {
             MatrixSort.Sort(array, (first, second) => first.Max() > second.Max());
 
-            var expected = array = new int[4][]
+            var expected = new int[4][]
             {
                 new int[3] { 7, 3, 4 }, //Min 3, Max 7, Sum 14
                 new int[3] { 8, 5, 6 }, //Min 5, Max 8, Sum 19
                 new int[3] { 9, 0, 1 }, //Min 0, Max 9, Sum 11
-                new int[3] { 10, 2, 2 } //Min 2, Max 10, Sum 13
+                new int[3] { 10, 2, 1 } //Min 1, Max 10, Sum 13
             };
 
             Assert.That(array, Is.EqualTo(expected));
@@ -117,11 +117,11 @@ namespace M07_Task.Tests
         {
             MatrixSort.Sort(array, (first, second) => first.Min() < second.Min());
 
-            var expected = array = new int[4][]
+            var expected = new int[4][]
             {
                 new int[3] { 8, 5, 6 }, //Min 5, Max 8, Sum 19
                 new int[3] { 7, 3, 4 }, //Min 3, Max 7, Sum 14
-                new int[3] { 10, 2, 2 }, //Min 2, Max 10, Sum 13
+                new int[3] { 10, 2, 1 }, //Min 1, Max 10, Sum 13
                 new int[3] { 9, 0, 1 } //Min 0, Max 9, Sum 11
             };
 
@@ -133,10 +133,10 @@ namespace M07_Task.Tests
         {
             MatrixSort.Sort(array, (first, second) => first.Min() > second.Min());
 
-            var expected = array = new int[4][]
+            var expected = new int[4][]
             {
                 new int[3] { 9, 0, 1 }, //Min 0, Max 9, Sum 11
-                new int[3] { 10, 2, 2 }, //Min 2, Max 10, Sum 13
+                new int[3] { 10, 2, 1 }, //Min 1, Max 10, Sum 13
                 new int[3] { 7, 3, 4 }, //Min 3, Max 7, Sum 14
                 new int[3] { 8, 5, 6 } //Min 5, Max 8, Sum 19
             };
