@@ -1,7 +1,4 @@
 ﻿using NUnit.Framework;
-using System;
-using ClassLibrary;
-using System.Text;
 
 namespace ClassLibrary.Tests
 {

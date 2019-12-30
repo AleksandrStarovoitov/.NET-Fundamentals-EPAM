@@ -29,7 +29,7 @@ namespace ClassLibrary
         public void Push(T item)
         {
             int size = Count;
-            T[] array = this.array;
+            var array = this.array;
 
             if ((uint)size < (uint)array.Length)
             {
@@ -52,7 +52,7 @@ namespace ClassLibrary
         public T Pop()
         {
             int size = this.Count - 1;
-            T[] array = this.array;
+            var array = this.array;
 
             if ((uint)size >= (uint)array.Length)
             {
@@ -60,7 +60,7 @@ namespace ClassLibrary
             }
 
             this.Count = size;
-            T item = array[size];
+            var item = array[size];
 
             array[size] = default;
             

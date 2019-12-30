@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
@@ -85,14 +82,14 @@ namespace ClassLibrary
         public T Dequeue()
         {
             int head = this.head;
-            T[] array = this.array;
+            var array = this.array;
 
             if (Count == 0)
             {
                 ThrowForEmptyQueue();
             }
 
-            T removed = array[head];
+            var removed = array[head];
 
             Count--;
 
