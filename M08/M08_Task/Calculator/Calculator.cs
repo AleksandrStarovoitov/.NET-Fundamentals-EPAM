@@ -9,9 +9,12 @@ namespace Calculator
 
         public static double Calculate(string expr)
         {
-            if (String.IsNullOrEmpty(expr))
+            switch (expr)
             {
-                throw new ArgumentException("Null or empty string", nameof(expr));
+                case null:
+                    throw new ArgumentNullException(nameof(expr));
+                case "":
+                    return 0;
             }
 
             stack = new ClassLibrary.Stack<double>(10);
