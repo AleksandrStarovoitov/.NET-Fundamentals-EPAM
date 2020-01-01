@@ -9,14 +9,13 @@ using Newtonsoft.Json;
 
 namespace ConsoleApp
 {
-    public static class Program
+    internal static class Program
     {
         private const string JsonPath = "ConsoleApp.Resources.students.json";
         private const string DateFormat = "dd/MM/yyyy";
-        private const string InvalidInputEx = "Invalid input.";
         private const string Name = "name", Mark = "mark", Test = "test", Date = "date";
-
-        static void Main(string[] args)
+        
+        public static void Main(string[] args)
         {
             var assembly = Assembly.GetExecutingAssembly();
 
@@ -34,19 +33,8 @@ namespace ConsoleApp
                 Console.WriteLine("Hello! Please input your criteria:");
 
                 var input = Console.ReadLine();
-                var splitInput = input?.Split('-').Where(s => s.Any()) ?? throw new ArgumentException("No input");
-                var splitInputList = splitInput.ToList();
 
-                if (!splitInputList.Any())
-                {
-                    throw new ArgumentException("Invalid input");
-                }
-
-                IEnumerable<Student> students = parsedStudents;
-                foreach (var flag in splitInputList)
-                {
-                    students = ProcessSearchCriteria(flag, students);
-                }
+                var students = ProcessInput(input, parsedStudents);
 
                 Console.WriteLine("Student\tTest\tDate\tMark");
 
@@ -57,14 +45,33 @@ namespace ConsoleApp
             }
         }
 
+        public static IEnumerable<Student> ProcessInput(string input, IEnumerable<Student> parsedStudents)
+        {
+            if (String.IsNullOrWhiteSpace(input))
+            {
+                throw new ArgumentException("Input is null or whitespace");
+            }
+
+            var regex = @"^((-[a-zA-Z]+ [a-zA-Z0-9/]+ )*(-[a-zA-Z]+ [a-zA-Z0-9/]+)( -sort [a-z]+ (a|de)sc+){0,1})$";
+            if (!Regex.IsMatch(input, regex))
+            {
+                throw new ArgumentException("Invalid input");
+            }
+
+            var splitInput = input.Split('-').Where(s => s.Any());
+            var splitInputList = splitInput.ToList();
+
+            foreach (var flag in splitInputList)
+            {
+                parsedStudents = ProcessSearchCriteria(flag, parsedStudents);
+            }
+
+            return parsedStudents;
+        }
+
         private static IEnumerable<Student> ProcessSearchCriteria(string flag, IEnumerable<Student> students)
         {
             var flagValuePair = flag.Split(' ');
-
-            if (flagValuePair.Length < 2)
-            {
-                throw new ArgumentException("Arguments number < 2");
-            }
 
             switch (flagValuePair[0])
             {
@@ -106,11 +113,6 @@ namespace ConsoleApp
 
         private static IEnumerable<Student> ProcessSortCriteria(string[] flagValuePair, IEnumerable<Student> students)
         {
-            if (flagValuePair.Length < 3)
-            {
-                throw new ArgumentException(InvalidInputEx);
-            }
-
             const string asc = "asc", desc = "desc";
 
             switch (flagValuePair[1])
