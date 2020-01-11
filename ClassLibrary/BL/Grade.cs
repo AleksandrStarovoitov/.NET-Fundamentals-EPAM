@@ -6,6 +6,7 @@ namespace ClassLibrary.BL
 {
     public class Grade
     {
+        public int Id { get; set; }
         public byte Mark { get; set; }
         
         public int LessonInScheduleId { get; set; }
