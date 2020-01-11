@@ -4,10 +4,9 @@ using System.Text;
 
 namespace ClassLibrary.BL
 {
-    public class Homework
+    public class Grade
     {
-        public int Id { get; set; }
-        public string? Value { get; set; } //TODO Nullable?
+        public byte Mark { get; set; }
         
         public int LessonInScheduleId { get; set; }
         public LessonInSchedule LessonInSchedule { get; set; } = null!;
