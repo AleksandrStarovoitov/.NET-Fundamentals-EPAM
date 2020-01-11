@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace ClassLibrary.BL
 {
-    class Lesson
+    public class Lesson
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
-        public List<LessonInSchedule> LessonsInSchedule { get; set; }
+        public List<LessonInSchedule> LessonsInSchedule { get; set; } = null!;
     }
 }

@@ -4,11 +4,11 @@ using System.Text;
 
 namespace ClassLibrary.BL
 {
-    class Teacher
+    public class Teacher
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
-        public List<LessonInSchedule> LessonsInSchedule { get; set; }
+        public List<LessonInSchedule> LessonsInSchedule { get; set; } = null!;
     }
 }
