@@ -14,5 +14,10 @@ namespace ClassLibrary.BL.Model
         
         public int StudentId { get; set; }
         public Student Student { get; set; } = null!;
+
+        public override string ToString()
+        {
+            return $"Id: {Id}, LessonInScheduleId: {LessonInScheduleId}, StudentId: {StudentId}, IsPresent: {IsPresent}"; // TODO
+        }
     }
 }
