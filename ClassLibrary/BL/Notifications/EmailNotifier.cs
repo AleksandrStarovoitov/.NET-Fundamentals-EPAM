@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClassLibrary.BL
 {
-    class EmailNotifier : INotifier
+    public class EmailNotifier : INotifier
     {
         public void SendNotification()
         {

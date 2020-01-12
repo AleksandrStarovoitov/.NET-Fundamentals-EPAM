@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace ClassLibrary.BL
+namespace ClassLibrary.BL.Model
 {
     public class Lesson
     {

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClassLibrary.BL
 {
-    interface INotifier
+    public interface INotifier
     {
         void SendNotification();
     }
