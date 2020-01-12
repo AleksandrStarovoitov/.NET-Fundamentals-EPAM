@@ -10,7 +10,7 @@ namespace ClassLibrary.BL
     {
         public DbSet<Attendance> Attendances { get; set; }
         public DbSet<Grade> Grades { get; set; }
-        public DbSet<Homework> Homeworks { get; set; }
+        public DbSet<Homework> Homework { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
         public DbSet<LessonInSchedule> LessonsInSchedule { get; set; }
         public DbSet<Student> Students { get; set; }

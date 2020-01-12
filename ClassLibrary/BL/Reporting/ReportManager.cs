@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 
-namespace ClassLibrary.BL
+namespace ClassLibrary.BL.Reporting
 {
     public class ReportManager
     {

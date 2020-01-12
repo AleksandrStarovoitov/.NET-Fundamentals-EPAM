@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ClassLibrary.BL
+namespace ClassLibrary.BL.Notifications
 {
     public interface INotifier
     {
