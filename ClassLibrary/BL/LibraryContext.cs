@@ -24,13 +24,13 @@ namespace ClassLibrary.BL
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlServer(
-                @"Server=(localdb)\mssqllocaldb;Database=University;Integrated Security=True");
+                @"Server=(localdb)\mssqllocaldb;Database=University;Integrated Security=True; Connect Timeout=10"); //TODO Settings
 
         //TODO Custom initialization logic?
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Teacher>().HasData(
-                new Teacher() { Id = 1, Name = "Jon Favreau" }, 
+                new Teacher() { Id = 1, Name = "Jon Favreau" },
                 new Teacher() { Id = 2, Name = "Robert Downey Jr." },
                 new Teacher() { Id = 3, Name = "Benedict Cumberbatch" },
                 new Teacher() { Id = 4, Name = "Scarlett Johansson" });
@@ -72,14 +72,14 @@ namespace ClassLibrary.BL
                 new Attendance() { Id = 8, LessonInScheduleId = 2, StudentId = 4, IsPresent = true });
 
             modelBuilder.Entity<Grade>().HasData(
-                new Grade() { Id = 1, StudentId = 1, LessonInScheduleId = 1, Mark = 0},
+                new Grade() { Id = 1, StudentId = 1, LessonInScheduleId = 1, Mark = 0 },
                 new Grade() { Id = 2, StudentId = 2, LessonInScheduleId = 1, Mark = 4 },
                 new Grade() { Id = 3, StudentId = 3, LessonInScheduleId = 1, Mark = 5 },
                 new Grade() { Id = 4, StudentId = 4, LessonInScheduleId = 1, Mark = 4 },
                 new Grade() { Id = 5, StudentId = 1, LessonInScheduleId = 2, Mark = 0 },
                 new Grade() { Id = 6, StudentId = 2, LessonInScheduleId = 2, Mark = 5 },
                 new Grade() { Id = 7, StudentId = 3, LessonInScheduleId = 2, Mark = 0 },
-                new Grade() { Id = 8, StudentId = 4, LessonInScheduleId = 2, Mark = 3 });
+            new Grade() { Id = 8, StudentId = 4, LessonInScheduleId = 2, Mark = 3 });
         }
     }
 }
