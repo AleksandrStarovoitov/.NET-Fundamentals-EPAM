@@ -14,15 +14,11 @@ namespace ClassLibrary.DAL
         public DbSet<Student> Students { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
 
-        public UniversityContext()
+        public UniversityContext(DbContextOptions<UniversityContext> options) : base(options)
         {
             Database.EnsureDeleted(); //TODO
             Database.EnsureCreated();
         }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlServer(
-                @"Server=(localdb)\mssqllocaldb;Database=University;Integrated Security=True; Connect Timeout=10"); //TODO Settings
 
         //TODO Custom initialization logic?
         protected override void OnModelCreating(ModelBuilder modelBuilder)

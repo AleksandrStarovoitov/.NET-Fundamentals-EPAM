@@ -12,7 +12,10 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            using (var context = new UniversityContext())
+            var optionsBuilder = new DbContextOptionsBuilder<UniversityContext>();
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=University;Integrated Security=True; Connect Timeout=10");
+
+            using (var context = new UniversityContext(optionsBuilder.Options))
             {
                 //context.Grades
                 //    .Include(g => g.Student)
@@ -24,8 +27,8 @@ namespace ConsoleApp
                 //{
                 //    Console.WriteLine($"{g.Id}: {g.Student.Name} - {g.Mark} ({g.LessonInSchedule.Lesson.Name}, {g.LessonInSchedule.Datetime})");
                 //}
-                var studentRepo = new EfRepository<Student, UniversityContext>(context);
-                var student = studentRepo.GetAsync(1).Result;
+                //var studentRepo = new EfRepository<Student, UniversityContext>(context);
+                //var student = studentRepo.GetAsync(1).Result;
 
                 var reportManager = new ReportManager(new TxtReportWriter("report.txt"), context);
                 reportManager.GenerateReportByStudentId(1);
