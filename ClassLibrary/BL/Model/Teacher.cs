@@ -2,7 +2,7 @@
 
 namespace ClassLibrary.BL.Model
 {
-    public class Teacher
+    public class Teacher : IEntity
     {
         public int Id { get; set; }
         public string Name { get; set; } = null!;

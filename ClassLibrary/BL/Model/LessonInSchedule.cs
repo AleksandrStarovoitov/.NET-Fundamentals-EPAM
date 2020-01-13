@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ClassLibrary.BL.Model
 {
-    public class LessonInSchedule
+    public class LessonInSchedule : IEntity
     {
         public int Id { get; set; }
         public DateTime Datetime { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace ClassLibrary.BL.Model
 {
-    public class Grade
+    public class Grade : IEntity
     {
         public int Id { get; set; }
         public byte Mark { get; set; }

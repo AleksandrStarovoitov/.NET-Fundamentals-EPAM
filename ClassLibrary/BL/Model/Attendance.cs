@@ -1,6 +1,6 @@
 ﻿namespace ClassLibrary.BL.Model
 {
-    public class Attendance
+    public class Attendance : IEntity
     {
         public int Id { get; set; }
         public bool IsPresent { get; set; }
