@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using ClassLibrary.DAL;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClassLibrary.BL.Reporting
@@ -6,9 +7,9 @@ namespace ClassLibrary.BL.Reporting
     public class ReportManager
     {
         private readonly IReportWriter reportWriter;
-        private readonly LibraryContext context;
+        private readonly UniversityContext context;
 
-        public ReportManager(IReportWriter reportWriter, LibraryContext context)
+        public ReportManager(IReportWriter reportWriter, UniversityContext context)
         {
             this.reportWriter = reportWriter;
             this.context = context;

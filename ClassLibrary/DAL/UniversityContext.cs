@@ -1,10 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using ClassLibrary.BL.Model;
+using Microsoft.EntityFrameworkCore;
 
-namespace ClassLibrary.BL
+namespace ClassLibrary.DAL
 {
-    public class LibraryContext : DbContext
+    public class UniversityContext : DbContext
     {
         public DbSet<Attendance> Attendances { get; set; }
         public DbSet<Grade> Grades { get; set; }
@@ -14,7 +14,7 @@ namespace ClassLibrary.BL
         public DbSet<Student> Students { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
 
-        public LibraryContext()
+        public UniversityContext()
         {
             Database.EnsureDeleted(); //TODO
             Database.EnsureCreated();
