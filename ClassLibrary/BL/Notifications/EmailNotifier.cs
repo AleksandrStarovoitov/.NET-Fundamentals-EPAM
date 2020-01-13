@@ -1,12 +1,19 @@
-﻿using System;
+﻿using NLog;
 
 namespace ClassLibrary.BL.Notifications
 {
     public class EmailNotifier : INotifier
     {
+        private readonly ILogger logger;
+
+        public EmailNotifier(ILogger logger)
+        {
+            this.logger = logger;
+        }
+
         public void SendNotification()
         {
-            throw new NotImplementedException();
+            logger.Info("Email notification is sent.");
         }
     }
 }
