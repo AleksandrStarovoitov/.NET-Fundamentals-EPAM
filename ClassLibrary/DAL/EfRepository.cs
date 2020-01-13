@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ClassLibrary.DAL
 {
-    public abstract class EfRepository<TEntity, TContext> : IRepository<TEntity>
+    public class EfRepository<TEntity, TContext> : IRepository<TEntity>
         where TEntity : class, IEntity
         where TContext : DbContext
     {
         private readonly TContext context;
 
-        protected EfRepository(TContext context)
+        public EfRepository(TContext context)
         {
             this.context = context;
         }
