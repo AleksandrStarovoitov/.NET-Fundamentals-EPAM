@@ -1,8 +1,4 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using ClassLibrary.BL.Model;
-using ClassLibrary.BL.Reporting;
+﻿using ClassLibrary.BL.Reporting;
 using ClassLibrary.DAL;
 using Microsoft.EntityFrameworkCore;
 

@@ -4,12 +4,12 @@ using ClassLibrary.BL.Model;
 
 namespace ClassLibrary.DAL
 {
-    public interface IRepository<T> where T : class, IEntity
+    public interface IAsyncRepository<T> where T : class, IEntity
     {
         Task<List<T>> GetAllAsync(); // TODO IReadOnlyList?
-        Task<T> GetAsync(int id);
+        Task<T> GetByIdAsync(int id);
         Task<T> AddAsync(T entity);
-        Task UpdateAsync(T entity);
-        Task DeleteAsync(T entity);
+        Task<T> UpdateAsync(T entity);
+        Task<T> DeleteAsync(int id);
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ClassLibrary.DAL
 {
-    public class EfRepository<TEntity, TContext> : IRepository<TEntity>
+    public class EfRepository<TEntity, TContext> : IAsyncRepository<TEntity>
         where TEntity : class, IEntity
         where TContext : DbContext
     {
@@ -24,13 +24,22 @@ namespace ClassLibrary.DAL
             return entity;
         }
 
-        public async Task DeleteAsync(TEntity entity)
+        public async Task<TEntity> DeleteAsync(int id)
         {
+            var entity = await context.Set<TEntity>().FindAsync(id);
+
+            if (entity == null)
+            {
+                return null;
+            }
+
             context.Set<TEntity>().Remove(entity);
             await context.SaveChangesAsync();
+
+            return entity;
         }
 
-        public async Task<TEntity> GetAsync(int id)
+        public async Task<TEntity> GetByIdAsync(int id)
         {
             return await context.Set<TEntity>().FindAsync(id);
         }
@@ -40,10 +49,13 @@ namespace ClassLibrary.DAL
             return await context.Set<TEntity>().ToListAsync();
         }
 
-        public async Task UpdateAsync(TEntity entity)
+        public async Task<TEntity> UpdateAsync(TEntity entity)
         {
+            //TODO If no entity
             context.Entry(entity).State = EntityState.Modified;
             await context.SaveChangesAsync();
+
+            return entity;
         }
     }
 }
