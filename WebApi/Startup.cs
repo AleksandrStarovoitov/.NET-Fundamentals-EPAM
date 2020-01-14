@@ -25,6 +25,12 @@ namespace WebApi
             services.AddDbContext<UniversityContext>(options => 
                 options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=University;Integrated Security=True; Connect Timeout=10")); //TODO appsettings.json
             services.AddScoped<IAttendanceRepository, AttendanceRepository>();
+            services.AddScoped<IGradeRepository, GradeRepository>();
+            services.AddScoped<IHomeworkRepository, HomeworkRepository>();
+            services.AddScoped<ILessonInScheduleRepository, LessonInScheduleRepository>();
+            services.AddScoped<ILessonRepository, LessonRepository>();
+            services.AddScoped<IStudentRepository, StudentRepository>();
+            services.AddScoped<ITeacherRepository, TeacherRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
