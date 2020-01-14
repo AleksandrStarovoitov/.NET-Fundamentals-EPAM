@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ClassLibrary
 {
@@ -8,27 +8,21 @@ namespace ClassLibrary
     {
         private static string IComparableImplException = "{0} does not implement IComparable interface";
 
-        public static int BinarySearch(ArrayList collection, object item)
+        public static int BinarySearch<T>(T[] collection, T item)
         {
             if (collection == null || item == null)
             {
                 throw new ArgumentNullException(collection == null ? nameof(collection) : nameof(item));
             }
 
-            var itemType = item.GetType();
             var itemComp = item as IComparable ??
                            throw new ArgumentException(String.Format(IComparableImplException, nameof(item)));
 
-            int leftIndex = 0, rightIndex = collection.Count - 1;
+            int leftIndex = 0, rightIndex = collection.Count() - 1;
 
             while (leftIndex <= rightIndex)
             {
                 var halfIndex = (rightIndex + leftIndex) / 2;
-
-                if (collection[halfIndex].GetType() != itemType)
-                {
-                    throw new ArgumentException("Arguments must have same type.");
-                }
 
                 var currentItemComp = collection[halfIndex] as IComparable;
 
