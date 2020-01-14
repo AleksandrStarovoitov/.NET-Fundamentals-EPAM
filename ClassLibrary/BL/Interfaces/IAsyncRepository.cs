@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using ClassLibrary.BL.Model;
 
-namespace ClassLibrary.DAL
+namespace ClassLibrary.BL.Interfaces
 {
     public interface IAsyncRepository<T> where T : class, IEntity
     {

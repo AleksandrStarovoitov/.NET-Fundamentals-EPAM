@@ -1,4 +1,5 @@
-﻿using ClassLibrary.BL.Model;
+﻿using ClassLibrary.BL.Interfaces;
+using ClassLibrary.BL.Model;
 
 namespace ClassLibrary.DAL
 {

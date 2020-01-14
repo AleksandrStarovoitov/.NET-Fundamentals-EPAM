@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using ClassLibrary.BL.Interfaces;
 using ClassLibrary.BL.Model;
 
 namespace ClassLibrary.BL.Reporting

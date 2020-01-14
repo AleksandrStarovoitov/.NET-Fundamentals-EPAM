@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using ClassLibrary.BL.Interfaces;
 using ClassLibrary.BL.Model;
 using Microsoft.EntityFrameworkCore;
 

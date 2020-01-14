@@ -1,4 +1,4 @@
-﻿namespace ClassLibrary.BL.Model
+﻿namespace ClassLibrary.BL.Interfaces
 {
     public interface IEntity
     {

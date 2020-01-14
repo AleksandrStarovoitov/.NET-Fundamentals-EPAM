@@ -1,4 +1,5 @@
-﻿using NLog;
+﻿using ClassLibrary.BL.Interfaces;
+using NLog;
 
 namespace ClassLibrary.BL.Notifications
 {

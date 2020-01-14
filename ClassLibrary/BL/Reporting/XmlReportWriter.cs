@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
+using ClassLibrary.BL.Interfaces;
 using ClassLibrary.BL.Model;
 
 namespace ClassLibrary.BL.Reporting

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using ClassLibrary.BL.Model;
-using ClassLibrary.DAL;
+using ClassLibrary.BL.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers

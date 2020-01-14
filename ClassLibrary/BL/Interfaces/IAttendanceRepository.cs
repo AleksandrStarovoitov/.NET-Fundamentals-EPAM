@@ -1,6 +1,6 @@
 ﻿using ClassLibrary.BL.Model;
 
-namespace ClassLibrary.DAL
+namespace ClassLibrary.BL.Interfaces
 {
     public interface IAttendanceRepository : IAsyncRepository<Attendance>
     {

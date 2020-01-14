@@ -1,4 +1,4 @@
-﻿namespace ClassLibrary.BL.Notifications
+﻿namespace ClassLibrary.BL.Interfaces
 {
     public interface INotifier
     {

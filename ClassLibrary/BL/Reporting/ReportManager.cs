@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using ClassLibrary.BL.Interfaces;
 using ClassLibrary.DAL;
 using Microsoft.EntityFrameworkCore;
 

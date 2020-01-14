@@ -1,4 +1,6 @@
-﻿namespace ClassLibrary.BL.Notifications
+﻿using ClassLibrary.BL.Interfaces;
+
+namespace ClassLibrary.BL.Notifications
 {
     public class NotificationManager
     {

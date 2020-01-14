@@ -1,4 +1,6 @@
-﻿namespace ClassLibrary.BL.Model
+﻿using ClassLibrary.BL.Interfaces;
+
+namespace ClassLibrary.BL.Model
 {
     public class Homework : IEntity
     {

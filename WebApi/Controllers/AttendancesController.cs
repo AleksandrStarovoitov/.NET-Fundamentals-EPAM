@@ -1,5 +1,5 @@
-﻿using ClassLibrary.BL.Model;
-using ClassLibrary.DAL;
+﻿using ClassLibrary.BL.Interfaces;
+using ClassLibrary.BL.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers

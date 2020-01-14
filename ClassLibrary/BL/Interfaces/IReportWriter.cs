@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using ClassLibrary.BL.Model;
 
-namespace ClassLibrary.BL.Reporting
+namespace ClassLibrary.BL.Interfaces
 {
     public interface IReportWriter
     {

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ClassLibrary.BL.Interfaces;
 
 namespace ClassLibrary.BL.Model
 {

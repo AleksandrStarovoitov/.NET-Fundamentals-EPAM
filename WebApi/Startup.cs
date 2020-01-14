@@ -1,3 +1,4 @@
+using ClassLibrary.BL.Interfaces;
 using ClassLibrary.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
