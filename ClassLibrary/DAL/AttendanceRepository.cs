@@ -1,4 +1,5 @@
-﻿using ClassLibrary.BL.Interfaces;
+﻿using System.Threading.Tasks;
+using ClassLibrary.BL.Interfaces;
 using ClassLibrary.BL.Model;
 
 namespace ClassLibrary.DAL
@@ -7,6 +8,9 @@ namespace ClassLibrary.DAL
     {
         public AttendanceRepository(UniversityContext context) : base(context) { }
 
-        //TODO Include Student, LessonInSchedule
+        public Task<Attendance> GetByIdWithStudentAndLessonAsync(int id)
+        {
+            return GetByIdWithIncludeAsync(id, attendance => attendance.Student, attendance => attendance.LessonInSchedule);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 using ClassLibrary.BL.Interfaces;
 
 namespace ClassLibrary.BL.Model
@@ -9,6 +10,7 @@ namespace ClassLibrary.BL.Model
         public int Id { get; set; }
         public DateTime Datetime { get; set; }
 
+        [JsonIgnore]
         public List<Grade> Grades { get; set; } = null!;
 
         public int LessonId { get; set; }

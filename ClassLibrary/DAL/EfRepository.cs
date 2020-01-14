@@ -1,17 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using ClassLibrary.BL.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClassLibrary.DAL
 {
-    public class EfRepository<TEntity, TContext> : IAsyncRepository<TEntity>
+    public abstract class EfRepository<TEntity, TContext> : IAsyncRepository<TEntity>
         where TEntity : class, IEntity
         where TContext : DbContext
     {
         private readonly TContext context;
 
-        public EfRepository(TContext context)
+        protected EfRepository(TContext context)
         {
             this.context = context;
         }
@@ -42,6 +45,16 @@ namespace ClassLibrary.DAL
         public async Task<TEntity> GetByIdAsync(int id)
         {
             return await context.Set<TEntity>().FindAsync(id);
+        }
+
+        protected async Task<TEntity> GetByIdWithIncludeAsync(int id, params Expression<Func<TEntity, object>>[] navigationPropertyPaths)
+        {
+            foreach (var path in navigationPropertyPaths)
+            {
+                context.Set<TEntity>().Include(path).ToList();
+            }
+
+            return await context.Set<TEntity>().SingleOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<List<TEntity>> GetAllAsync()
