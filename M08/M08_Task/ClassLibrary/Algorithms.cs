@@ -18,7 +18,7 @@ namespace ClassLibrary
             var itemComp = item as IComparable ??
                            throw new ArgumentException(String.Format(IComparableImplException, nameof(item)));
 
-            int leftIndex = 0, rightIndex = collection.Count() - 1;
+            int leftIndex = 0, rightIndex = collection.Length - 1;
 
             while (leftIndex <= rightIndex)
             {
