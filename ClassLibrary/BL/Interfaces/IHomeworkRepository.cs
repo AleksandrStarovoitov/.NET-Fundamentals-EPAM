@@ -2,7 +2,7 @@
 
 namespace ClassLibrary.BL.Interfaces
 {
-    public interface IHomeworkRepository : IAsyncRepository<Homework>
+    public interface IHomeworkRepository : IIncludeAsyncRepository<Homework>
     {
     }
 }

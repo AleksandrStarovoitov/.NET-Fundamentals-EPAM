@@ -1,12 +1,17 @@
-﻿using ClassLibrary.BL.Interfaces;
+﻿using System.Threading.Tasks;
+using ClassLibrary.BL.Interfaces;
 using ClassLibrary.BL.Model;
 
 namespace ClassLibrary.DAL
 {
-    public class LessonInScheduleRepository : EfRepository<LessonInSchedule, UniversityContext>, ILessonInScheduleRepository
+    public class LessonInScheduleRepository : EfWithIncludeRepository<LessonInSchedule, UniversityContext>, ILessonInScheduleRepository
     {
         public LessonInScheduleRepository(UniversityContext context) : base(context) { }
 
-        //TODO Include
+        public override async Task<LessonInSchedule> GetByIdWithIncludeAsync(int id)
+        {
+            return await GetByIdWithIncludeInternalAsync(id, lessonInSchedule => lessonInSchedule.Lesson, 
+                lessonInSchedule => lessonInSchedule.Teacher);
+        }
     }
 }

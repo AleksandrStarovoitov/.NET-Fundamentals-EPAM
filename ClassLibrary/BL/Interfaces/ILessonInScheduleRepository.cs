@@ -2,7 +2,7 @@
 
 namespace ClassLibrary.BL.Interfaces
 {
-    public interface ILessonInScheduleRepository : IAsyncRepository<LessonInSchedule>
+    public interface ILessonInScheduleRepository : IIncludeAsyncRepository<LessonInSchedule>
     {
     }
 }

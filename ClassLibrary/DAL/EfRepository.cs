@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using ClassLibrary.BL.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -12,7 +9,7 @@ namespace ClassLibrary.DAL
         where TEntity : class, IEntity
         where TContext : DbContext
     {
-        private readonly TContext context;
+        protected readonly TContext context;
 
         protected EfRepository(TContext context)
         {
@@ -46,17 +43,7 @@ namespace ClassLibrary.DAL
         {
             return await context.Set<TEntity>().FindAsync(id);
         }
-
-        protected async Task<TEntity> GetByIdWithIncludeAsync(int id, params Expression<Func<TEntity, object>>[] navigationPropertyPaths)
-        {
-            foreach (var path in navigationPropertyPaths)
-            {
-                context.Set<TEntity>().Include(path).ToList();
-            }
-
-            return await context.Set<TEntity>().SingleOrDefaultAsync(x => x.Id == id);
-        }
-
+        
         public async Task<List<TEntity>> GetAllAsync()
         {
             return await context.Set<TEntity>().ToListAsync();

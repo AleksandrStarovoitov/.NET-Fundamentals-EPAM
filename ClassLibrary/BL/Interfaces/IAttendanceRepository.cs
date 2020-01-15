@@ -1,10 +1,8 @@
-﻿using System.Threading.Tasks;
-using ClassLibrary.BL.Model;
+﻿using ClassLibrary.BL.Model;
 
 namespace ClassLibrary.BL.Interfaces
 {
-    public interface IAttendanceRepository : IAsyncRepository<Attendance>
+    public interface IAttendanceRepository : IIncludeAsyncRepository<Attendance>
     {
-        Task<Attendance> GetByIdWithStudentAndLessonAsync(int id);
     }
 }

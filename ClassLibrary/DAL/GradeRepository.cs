@@ -1,12 +1,17 @@
-﻿using ClassLibrary.BL.Interfaces;
+﻿using System.Threading.Tasks;
+using ClassLibrary.BL.Interfaces;
 using ClassLibrary.BL.Model;
 
 namespace ClassLibrary.DAL
 {
-    public class GradeRepository : EfRepository<Grade, UniversityContext>, IGradeRepository
+    public class GradeRepository : EfWithIncludeRepository<Grade, UniversityContext>, IGradeRepository
     {
         public GradeRepository(UniversityContext context) : base(context) { }
 
-        //TODO Include
+        public override async Task<Grade> GetByIdWithIncludeAsync(int id)
+        {
+            return await GetByIdWithIncludeInternalAsync(id, grade => grade.Student, 
+                grade => grade.LessonInSchedule);
+        }
     }
 }

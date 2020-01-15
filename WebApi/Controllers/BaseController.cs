@@ -10,7 +10,7 @@ namespace WebApi.Controllers
     public class BaseController<TEntity> : ControllerBase
         where TEntity : class, IEntity
     {
-        protected readonly IAsyncRepository<TEntity> repository;
+        private readonly IAsyncRepository<TEntity> repository;
 
         public BaseController(IAsyncRepository<TEntity> repository)
         {

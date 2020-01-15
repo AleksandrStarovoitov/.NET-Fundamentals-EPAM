@@ -4,13 +4,14 @@ using ClassLibrary.BL.Model;
 
 namespace ClassLibrary.DAL
 {
-    public class AttendanceRepository : EfRepository<Attendance, UniversityContext>, IAttendanceRepository
+    public class AttendanceRepository : EfWithIncludeRepository<Attendance, UniversityContext>, IAttendanceRepository
     {
         public AttendanceRepository(UniversityContext context) : base(context) { }
 
-        public Task<Attendance> GetByIdWithStudentAndLessonAsync(int id)
+        public override async Task<Attendance> GetByIdWithIncludeAsync(int id)
         {
-            return GetByIdWithIncludeAsync(id, attendance => attendance.Student, attendance => attendance.LessonInSchedule);
+            return await GetByIdWithIncludeInternalAsync(id, attendance => attendance.Student, 
+                attendance => attendance.LessonInSchedule);
         }
     }
 }

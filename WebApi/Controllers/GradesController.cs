@@ -6,7 +6,7 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GradesController : BaseController<Grade>
+    public class GradesController : BaseWithIncludeController<Grade> 
     {
         public GradesController(IGradeRepository repository) : base(repository) { }
     }
