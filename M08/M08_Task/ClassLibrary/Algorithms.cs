@@ -6,7 +6,7 @@ namespace ClassLibrary
 {
     public static class Algorithms
     {
-        private static string IComparableImplException = "{0} does not implement IComparable interface";
+        private static string comparatorAbsenceMessage = "{0} does not implement IComparable interface";
 
         public static int BinarySearch<T>(T[] collection, T item)
         {
@@ -16,7 +16,7 @@ namespace ClassLibrary
             }
 
             var itemComp = item as IComparable ??
-                           throw new ArgumentException(String.Format(IComparableImplException, nameof(item)));
+                           throw new ArgumentException(String.Format(comparatorAbsenceMessage, nameof(item)));
 
             int leftIndex = 0, rightIndex = collection.Length - 1;
 
