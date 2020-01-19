@@ -148,6 +148,18 @@ namespace ConsoleApp.Tests
         }
 
         [Test]
+        public void ProcessInput_ManyWhitespaces_FiltersCorrectly()
+        {
+            var inputString = "-minmark    3         -maxmark  5   -sort    name    asc";
+
+            var result = Program.ProcessInput(inputString, parsedStudents).ToList();
+
+            var expected = parsedStudents.Where(s => s.mark >= 3 && s.mark <= 5).OrderBy(s => s.student);
+
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [Test]
         public void ProcessInput_Maxmark_FiltersCorrectly()
         {
             var inputString = "-maxmark 4";

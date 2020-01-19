@@ -52,7 +52,7 @@ namespace ConsoleApp
                 throw new ArgumentException("Input is null or whitespace");
             }
 
-            var regex = @"^((-[a-zA-Z]+ [a-zA-Z0-9/]+ )*(-[a-zA-Z]+ [a-zA-Z0-9/]+)( -sort [a-z]+ (a|de)sc+){0,1})$";
+            var regex = @"^((-[a-zA-Z]+ +[a-zA-Z0-9/]+ +)*(-[a-zA-Z]+ +[a-zA-Z0-9/]+)( +-sort +[a-z]+ +(a|de)sc+){0,1})$";
             if (!Regex.IsMatch(input, regex))
             {
                 throw new ArgumentException("Invalid input");
@@ -71,7 +71,7 @@ namespace ConsoleApp
 
         private static IEnumerable<Student> ProcessSearchCriteria(string flag, IEnumerable<Student> students)
         {
-            var flagValuePair = flag.Split(' ');
+            var flagValuePair = flag.Split(' ').Where(s => s.Any()).ToArray();
 
             switch (flagValuePair[0])
             {
