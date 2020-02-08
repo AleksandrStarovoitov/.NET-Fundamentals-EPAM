@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebApi.Extensions;
 
 namespace WebApi
 {
@@ -22,8 +23,10 @@ namespace WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<UniversityContext>(options => 
-                options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=University;Integrated Security=True; Connect Timeout=10")); //TODO appsettings.json
+
+            var connectionString = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContextExt<UniversityContext>(connectionString);
+
             services.AddScoped<IAttendanceRepository, AttendanceRepository>();
             services.AddScoped<IGradeRepository, GradeRepository>();
             services.AddScoped<IHomeworkRepository, HomeworkRepository>();
