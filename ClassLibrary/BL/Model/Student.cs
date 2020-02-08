@@ -10,10 +10,10 @@ namespace ClassLibrary.BL.Model
         public string Name { get; set; } = null!;
 
         [JsonIgnore]
-        public List<Grade> Grades { get; set; } = null!;
+        public List<Grade>? Grades { get; set; }
         [JsonIgnore]
-        public List<Homework> Homework { get; set; } = null!;
+        public List<Homework>? Homework { get; set; }
         [JsonIgnore]
-        public List<Attendance> Attendances { get; set; } = null!;
+        public List<Attendance>? Attendances { get; set; }
     }
 }

@@ -10,6 +10,6 @@ namespace ClassLibrary.BL.Model
         public string Name { get; set; } = null!;
 
         [JsonIgnore]
-        public List<LessonInSchedule> LessonsInSchedule { get; set; } = null!;
+        public List<LessonInSchedule>? LessonsInSchedule { get; set; }
     }
 }

@@ -8,9 +8,9 @@ namespace ClassLibrary.BL.Model
         public string? Value { get; set; } //TODO Nullable?
         
         public int LessonInScheduleId { get; set; }
-        public LessonInSchedule LessonInSchedule { get; set; } = null!;
+        public LessonInSchedule? LessonInSchedule { get; set; }
 
         public int StudentId { get; set; }
-        public Student Student { get; set; } = null!;
+        public Student? Student { get; set; }
     }
 }

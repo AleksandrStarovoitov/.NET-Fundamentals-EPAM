@@ -11,12 +11,12 @@ namespace ClassLibrary.BL.Model
         public DateTime Datetime { get; set; }
 
         [JsonIgnore]
-        public List<Grade> Grades { get; set; } = null!;
+        public List<Grade>? Grades { get; set; }
 
         public int LessonId { get; set; }
-        public Lesson Lesson { get; set; } = null!;
+        public Lesson? Lesson { get; set; }
 
         public int TeacherId { get; set; }
-        public Teacher Teacher { get; set; } = null!;
+        public Teacher? Teacher { get; set; }
     }
 }
