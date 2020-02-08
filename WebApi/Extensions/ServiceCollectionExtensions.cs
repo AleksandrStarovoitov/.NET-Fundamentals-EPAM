@@ -11,7 +11,7 @@ namespace WebApi.Extensions
     {
         public static void AddDbContextExt<TContext>(this IServiceCollection services, string connectionString) where TContext : DbContext
         {
-            services.AddDbContext<TContext>(options => options.UseSqlServer(connectionString));
+            services.AddDbContextPool<TContext>(options => options.UseSqlServer(connectionString));
         }
     }
 }
