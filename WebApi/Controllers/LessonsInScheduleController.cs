@@ -6,7 +6,7 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LessonsInScheduleController : BaseController<LessonInSchedule>
+    public class LessonsInScheduleController : BaseWithIncludeController<LessonInSchedule>
     {
         public LessonsInScheduleController(ILessonInScheduleRepository repository) : base(repository) { }
     }
