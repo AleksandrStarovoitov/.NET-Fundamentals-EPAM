@@ -19,14 +19,14 @@ namespace WebApi.Controllers
 
         // GET: api/[controller]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TEntity>>> Get()
+        public async Task<ActionResult<IEnumerable<TEntity>>> GetAll()
         {
             return await repository.GetAllAsync();
         }
 
         // GET: api/[controller]/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<TEntity>> Get(int id)
+        public async Task<ActionResult<TEntity>> GetById(int id)
         {
             var entity = await repository.GetByIdAsync(id);
 
@@ -40,7 +40,7 @@ namespace WebApi.Controllers
 
         // PUT: api/[controller]/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(TEntity entity)
+        public async Task<IActionResult> Update(TEntity entity)
         {
             //TODO If no entity
             await repository.UpdateAsync(entity);
@@ -50,10 +50,10 @@ namespace WebApi.Controllers
 
         // POST: api/[controller]
         [HttpPost]
-        public async Task<ActionResult<TEntity>> Post(TEntity entity)
+        public async Task<ActionResult<TEntity>> Create(TEntity entity)
         {
             await repository.AddAsync(entity);
-            return CreatedAtAction("Get", new { id = entity.Id }, entity);
+            return CreatedAtAction("Create", new { id = entity.Id }, entity);
         }
 
         // DELETE: api/[controller]/5
