@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using ClassLibrary.BL.Interfaces;
+using ClassLibrary.BL.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClassLibrary.DAL

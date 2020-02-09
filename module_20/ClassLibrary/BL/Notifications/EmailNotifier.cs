@@ -14,7 +14,7 @@ namespace ClassLibrary.BL.Notifications
 
         public void SendNotification()
         {
-            logger.LogInformation("Email notification is sent.");
+            logger?.LogInformation("Email notification is sent.");
         }
     }
 }

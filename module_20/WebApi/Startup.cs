@@ -1,4 +1,6 @@
-using ClassLibrary.BL.Interfaces;
+using ClassLibrary.BL.Interfaces.Repositories;
+using ClassLibrary.BL.Interfaces.Services;
+using ClassLibrary.BL.Services;
 using ClassLibrary.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,6 +28,14 @@ namespace WebApi
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContextExt<UniversityContext>(connectionString);
 
+            services.AddScoped<IAttendanceService, AttendanceService>();
+            services.AddScoped<IGradeService, GradeService>();
+            services.AddScoped<IHomeworkService, HomeworkService>();
+            services.AddScoped<ILessonInScheduleService, LessonInScheduleService>();
+            services.AddScoped<ILessonService, LessonService>();
+            services.AddScoped<IStudentService, StudentService>();
+            services.AddScoped<ITeacherService, TeacherService>();
+            
             services.AddScoped<IAttendanceRepository, AttendanceRepository>();
             services.AddScoped<IGradeRepository, GradeRepository>();
             services.AddScoped<IHomeworkRepository, HomeworkRepository>();
@@ -33,6 +43,7 @@ namespace WebApi
             services.AddScoped<ILessonRepository, LessonRepository>();
             services.AddScoped<IStudentRepository, StudentRepository>();
             services.AddScoped<ITeacherRepository, TeacherRepository>();
+
 
             services.AddSwaggerDocument(config =>
             {
@@ -50,6 +61,10 @@ namespace WebApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            }
+            else if (env.IsStaging())
+            {
+                app.UseExceptionHandler("/error");
             }
 
             app.UseHttpsRedirection();

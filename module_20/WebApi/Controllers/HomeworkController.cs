@@ -1,4 +1,4 @@
-﻿using ClassLibrary.BL.Interfaces;
+﻿using ClassLibrary.BL.Interfaces.Services;
 using ClassLibrary.BL.Model;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +8,6 @@ namespace WebApi.Controllers
     [ApiController]
     public class HomeworkController : BaseWithIncludeController<Homework>
     {
-        public HomeworkController(IHomeworkRepository repository) : base(repository) { }
+        public HomeworkController(IHomeworkService service) : base(service) { }
     }
 }

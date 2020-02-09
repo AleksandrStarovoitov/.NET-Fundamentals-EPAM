@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using ClassLibrary.BL.Interfaces;
+using ClassLibrary.BL.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
@@ -7,11 +8,11 @@ namespace WebApi.Controllers
     public class BaseWithIncludeController<TEntity> : BaseController<TEntity>
         where TEntity : class, IEntity
     {
-        private readonly IIncludeAsyncRepository<TEntity> repository;
+        private readonly IIncludeAsyncService<TEntity> repository;
 
-        public BaseWithIncludeController(IIncludeAsyncRepository<TEntity> repository) : base(repository)
+        public BaseWithIncludeController(IIncludeAsyncService<TEntity> service) : base(service)
         {
-            this.repository = repository;
+            this.repository = service;
         }
 
         // GET: api/[controller]/include/5

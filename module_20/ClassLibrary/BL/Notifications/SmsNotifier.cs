@@ -14,7 +14,7 @@ namespace ClassLibrary.BL.Notifications
 
         public void SendNotification()
         {
-            logger.LogInformation("SMS notification is sent.");
+            logger?.LogInformation("SMS notification is sent.");
         }
     }
 }

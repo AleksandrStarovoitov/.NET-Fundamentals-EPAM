@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using ClassLibrary.BL.Interfaces;
+using ClassLibrary.BL.Interfaces.Repositories;
 using ClassLibrary.BL.Model;
 
 namespace ClassLibrary.DAL

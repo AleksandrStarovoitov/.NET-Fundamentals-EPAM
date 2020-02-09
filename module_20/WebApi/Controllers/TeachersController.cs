@@ -1,4 +1,4 @@
-﻿using ClassLibrary.BL.Interfaces;
+﻿using ClassLibrary.BL.Interfaces.Services;
 using ClassLibrary.BL.Model;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +8,6 @@ namespace WebApi.Controllers
     [ApiController]
     public class TeachersController : BaseController<Teacher>
     {
-        public TeachersController(ITeacherRepository repository) : base(repository) { }
+        public TeachersController(ITeacherService service) : base(service) { }
     }
 }

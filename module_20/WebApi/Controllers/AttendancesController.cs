@@ -1,4 +1,4 @@
-﻿using ClassLibrary.BL.Interfaces;
+﻿using ClassLibrary.BL.Interfaces.Services;
 using ClassLibrary.BL.Model;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +8,6 @@ namespace WebApi.Controllers
     [ApiController]
     public class AttendancesController : BaseWithIncludeController<Attendance>
     {
-        public AttendancesController(IAttendanceRepository repository) : base(repository) { }
+        public AttendancesController(IAttendanceService service) : base(service) { }
     }
 }

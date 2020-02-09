@@ -13,7 +13,7 @@ namespace ClassLibrary.BL.Notifications
 
         public void Notify()
         {
-            notifier.SendNotification();
+            notifier?.SendNotification();
         }
     }
 }

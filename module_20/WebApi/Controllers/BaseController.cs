@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using ClassLibrary.BL.Interfaces;
+using ClassLibrary.BL.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
@@ -10,25 +11,25 @@ namespace WebApi.Controllers
     public class BaseController<TEntity> : ControllerBase
         where TEntity : class, IEntity
     {
-        private readonly IAsyncRepository<TEntity> repository;
+        private readonly IAsyncService<TEntity> service;
 
-        public BaseController(IAsyncRepository<TEntity> repository)
+        public BaseController(IAsyncService<TEntity> service)
         {
-            this.repository = repository;
+            this.service = service;
         }
 
         // GET: api/[controller]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TEntity>>> GetAll()
         {
-            return await repository.GetAllAsync();
+            return await service.GetAllAsync();
         }
 
         // GET: api/[controller]/5
         [HttpGet("{id}")]
         public async Task<ActionResult<TEntity>> GetById(int id)
         {
-            var entity = await repository.GetByIdAsync(id);
+            var entity = await service.GetByIdAsync(id);
 
             if (entity == null)
             {
@@ -43,7 +44,7 @@ namespace WebApi.Controllers
         public async Task<IActionResult> Update(TEntity entity)
         {
             //TODO If no entity
-            await repository.UpdateAsync(entity);
+            await service.UpdateAsync(entity);
 
             return Ok();
         }
@@ -52,7 +53,7 @@ namespace WebApi.Controllers
         [HttpPost]
         public async Task<ActionResult<TEntity>> Create(TEntity entity)
         {
-            await repository.AddAsync(entity);
+            await service.AddAsync(entity);
             return CreatedAtAction("Create", new { id = entity.Id }, entity);
         }
 
@@ -60,7 +61,7 @@ namespace WebApi.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
-            var entity = await repository.DeleteAsync(id);
+            var entity = await service.DeleteAsync(id);
 
             if (entity == null)
             {
