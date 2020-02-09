@@ -1,10 +1,13 @@
-﻿using ClassLibrary.BL.Interfaces;
+﻿using System.ComponentModel.DataAnnotations;
+using ClassLibrary.BL.Interfaces;
 
 namespace ClassLibrary.BL.Model
 {
     public class Grade : IEntity
     {
         public int Id { get; set; }
+
+        [Range(1, 5)]
         public byte Mark { get; set; }
         
         public int LessonInScheduleId { get; set; }
