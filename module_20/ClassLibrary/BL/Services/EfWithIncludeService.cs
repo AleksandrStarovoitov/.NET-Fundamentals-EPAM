@@ -2,6 +2,7 @@
 using ClassLibrary.BL.Interfaces;
 using ClassLibrary.BL.Interfaces.Repositories;
 using ClassLibrary.BL.Interfaces.Services;
+using Microsoft.Extensions.Logging;
 
 namespace ClassLibrary.BL.Services
 {
@@ -9,7 +10,7 @@ namespace ClassLibrary.BL.Services
         where TEntity : class, IEntity
         where TRepository : IIncludeAsyncRepository<TEntity>
     {
-        protected EfWithIncludeService(TRepository repository) : base(repository) { }
+        protected EfWithIncludeService(TRepository repository, ILogger<EfWithIncludeService<TEntity, TRepository>> logger) : base(repository, logger) { }
         
         public Task<TEntity> GetByIdWithIncludeAsync(int id)
         {
