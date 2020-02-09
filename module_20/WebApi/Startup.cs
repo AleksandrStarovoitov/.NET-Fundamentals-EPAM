@@ -1,5 +1,6 @@
 using ClassLibrary.BL.Interfaces.Repositories;
 using ClassLibrary.BL.Interfaces.Services;
+using ClassLibrary.BL.Reporting;
 using ClassLibrary.BL.Services;
 using ClassLibrary.DAL;
 using Microsoft.AspNetCore.Builder;
@@ -44,6 +45,8 @@ namespace WebApi
             services.AddScoped<IStudentRepository, StudentRepository>();
             services.AddScoped<ITeacherRepository, TeacherRepository>();
 
+            services.AddScoped<XmlReportWriter>();
+            services.AddScoped<TxtReportWriter>();
 
             services.AddSwaggerDocument(config =>
             {

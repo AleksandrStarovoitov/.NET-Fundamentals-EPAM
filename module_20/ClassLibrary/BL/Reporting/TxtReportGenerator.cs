@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.IO;
+using System.Text;
 using ClassLibrary.BL.Interfaces;
 using ClassLibrary.BL.Model;
 
@@ -7,21 +7,16 @@ namespace ClassLibrary.BL.Reporting
 {
     public class TxtReportWriter : IReportWriter
     {
-        private readonly string filePath;
-
-        public TxtReportWriter(string filePath)
+        public Report GenerateReport(IEnumerable<Attendance> attendances)
         {
-            this.filePath = filePath;
-        }
-
-        public void WriteReport(IEnumerable<Attendance> attendances)
-        {
-            using var fs = new StreamWriter(File.OpenWrite(filePath));
+            var sb = new StringBuilder();
 
             foreach (var attendance in attendances)
             {
-                fs.WriteLine(attendance.ToString()); // TODO Format
+                sb.AppendLine(attendance.ToString()); //TODO Format
             }
+
+            return new Report() { Content = sb.ToString(), ContentType = "text/plain" };
         }
     }
 }

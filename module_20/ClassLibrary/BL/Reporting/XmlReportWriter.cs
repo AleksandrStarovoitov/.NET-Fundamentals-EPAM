@@ -9,19 +9,15 @@ namespace ClassLibrary.BL.Reporting
 {
     public class XmlReportWriter : IReportWriter
     {
-        private readonly string filePath;
-
-        public XmlReportWriter(string filePath)
+        public Report GenerateReport(IEnumerable<Attendance> attendances)
         {
-            this.filePath = filePath;
-        }
-
-        public void WriteReport(IEnumerable<Attendance> attendances)
-        {
-            using var fs = File.OpenWrite(filePath);
+            using var sw = new StringWriter();
 
             var serializer = new XmlSerializer(typeof(List<Attendance>));
-            serializer.Serialize(fs, attendances.ToList());
+            serializer.Serialize(sw, attendances.ToList());
+
+            var xmlString = sw.ToString();
+            return new Report() { Content = xmlString, ContentType = "application/xml" };
         }
     }
 }

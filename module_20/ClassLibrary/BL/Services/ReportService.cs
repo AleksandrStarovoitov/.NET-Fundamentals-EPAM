@@ -1,37 +1,38 @@
 ﻿using System.Linq;
 using ClassLibrary.BL.Interfaces;
+using ClassLibrary.BL.Reporting;
 using ClassLibrary.DAL;
 using Microsoft.EntityFrameworkCore;
 
-namespace ClassLibrary.BL.Reporting
+namespace ClassLibrary.BL.Services
 {
-    public class ReportManager
+    public class ReportService
     {
         private readonly IReportWriter reportWriter;
         private readonly UniversityContext context;
 
-        public ReportManager(IReportWriter reportWriter, UniversityContext context)
+        public ReportService(IReportWriter reportWriter, UniversityContext context)
         {
             this.reportWriter = reportWriter;
             this.context = context;
         }
 
-        public void GenerateReportByLessonId(int lessonId)
+        public Report GenerateReportByLessonId(int lessonId)
         {
             var results = context.Attendances
                 .Include(a => a.LessonInSchedule)
                 .ToList()
                 .Where(a => a.LessonInSchedule.LessonId == lessonId);
 
-            reportWriter.WriteReport(results);
+            return reportWriter.GenerateReport(results);
         }
 
-        public void GenerateReportByStudentId(int studentId)
+        public Report GenerateReportByStudentId(int studentId)
         {
             var results = context.Attendances
                 .Where(a => a.StudentId == studentId);
 
-            reportWriter.WriteReport(results);
+            return reportWriter.GenerateReport(results);
         }
     }
 }
