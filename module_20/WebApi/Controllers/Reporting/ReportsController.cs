@@ -8,14 +8,14 @@ namespace WebApi.Controllers.Reporting
 {
     [Route("api/[controller]")]
     [ApiController]
-    public abstract class ReportsController<TReportWriter> : ControllerBase 
-        where TReportWriter : IReportWriter
+    public abstract class ReportsController<TReportGenerator> : ControllerBase 
+        where TReportGenerator : IReportGenerator
     {
         private readonly ReportService reportService;
 
-        protected ReportsController(TReportWriter reportWriter, UniversityContext context)
+        protected ReportsController(TReportGenerator reportGenerator, UniversityContext context)
         {
-            reportService = new ReportService(reportWriter, context);
+            reportService = new ReportService(reportGenerator, context);
         }
 
         [HttpGet("ByStudentId/{id}")]

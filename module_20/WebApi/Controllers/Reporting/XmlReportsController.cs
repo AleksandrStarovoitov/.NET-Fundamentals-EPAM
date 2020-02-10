@@ -6,8 +6,8 @@ namespace WebApi.Controllers.Reporting
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class XmlReportsController : ReportsController<XmlReportWriter>
+    public class XmlReportsController : ReportsController<XmlReportGenerator>
     {
-        public XmlReportsController(XmlReportWriter reportWriter, UniversityContext context) : base(reportWriter, context) { }
+        public XmlReportsController(XmlReportGenerator reportGenerator, UniversityContext context) : base(reportGenerator, context) { }
     }
 }

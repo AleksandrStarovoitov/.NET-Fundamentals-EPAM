@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
@@ -7,10 +8,15 @@ using ClassLibrary.BL.Model;
 
 namespace ClassLibrary.BL.Reporting
 {
-    public class XmlReportWriter : IReportWriter
+    public class XmlReportGenerator : IReportGenerator
     {
         public Report GenerateReport(IEnumerable<Attendance> attendances)
         {
+            if (attendances == null)
+            {
+                throw new ArgumentNullException(nameof(attendances));
+            }
+
             using var sw = new StringWriter();
 
             var serializer = new XmlSerializer(typeof(List<Attendance>));

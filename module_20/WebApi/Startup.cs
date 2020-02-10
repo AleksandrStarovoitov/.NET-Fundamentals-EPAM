@@ -45,8 +45,8 @@ namespace WebApi
             services.AddScoped<IStudentRepository, StudentRepository>();
             services.AddScoped<ITeacherRepository, TeacherRepository>();
 
-            services.AddScoped<XmlReportWriter>();
-            services.AddScoped<TxtReportWriter>();
+            services.AddScoped<XmlReportGenerator>();
+            services.AddScoped<TxtReportGenerator>();
 
             services.AddSwaggerDocument(config =>
             {

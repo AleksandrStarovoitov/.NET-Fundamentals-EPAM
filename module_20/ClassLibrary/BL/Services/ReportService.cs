@@ -8,12 +8,12 @@ namespace ClassLibrary.BL.Services
 {
     public class ReportService
     {
-        private readonly IReportWriter reportWriter;
+        private readonly IReportGenerator reportGenerator;
         private readonly UniversityContext context;
 
-        public ReportService(IReportWriter reportWriter, UniversityContext context)
+        public ReportService(IReportGenerator reportGenerator, UniversityContext context)
         {
-            this.reportWriter = reportWriter;
+            this.reportGenerator = reportGenerator;
             this.context = context;
         }
 
@@ -24,7 +24,7 @@ namespace ClassLibrary.BL.Services
                 .ToList()
                 .Where(a => a.LessonInSchedule.LessonId == lessonId);
 
-            return reportWriter.GenerateReport(results);
+            return reportGenerator.GenerateReport(results);
         }
 
         public Report GenerateReportByStudentId(int studentId)
@@ -32,7 +32,7 @@ namespace ClassLibrary.BL.Services
             var results = context.Attendances
                 .Where(a => a.StudentId == studentId);
 
-            return reportWriter.GenerateReport(results);
+            return reportGenerator.GenerateReport(results);
         }
     }
 }

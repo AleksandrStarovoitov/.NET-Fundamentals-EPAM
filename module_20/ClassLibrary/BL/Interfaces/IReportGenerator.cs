@@ -4,7 +4,7 @@ using ClassLibrary.BL.Reporting;
 
 namespace ClassLibrary.BL.Interfaces
 {
-    public interface IReportWriter
+    public interface IReportGenerator
     {
         Report GenerateReport(IEnumerable<Attendance> attendances); 
     }
