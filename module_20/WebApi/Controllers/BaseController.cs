@@ -41,9 +41,13 @@ namespace WebApi.Controllers
 
         // PUT: api/[controller]/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(TEntity entity)
+        public async Task<IActionResult> Update(int id, TEntity entity)
         {
-            //TODO If no entity
+            if (id != entity.Id)
+            {
+                return BadRequest();
+            }
+
             await service.UpdateAsync(entity);
 
             return Ok();

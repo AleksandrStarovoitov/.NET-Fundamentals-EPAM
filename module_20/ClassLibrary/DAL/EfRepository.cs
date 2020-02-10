@@ -52,7 +52,6 @@ namespace ClassLibrary.DAL
 
         public async Task<TEntity> UpdateAsync(TEntity entity)
         {
-            //TODO If no entity
             context.Entry(entity).State = EntityState.Modified;
             await context.SaveChangesAsync();
 

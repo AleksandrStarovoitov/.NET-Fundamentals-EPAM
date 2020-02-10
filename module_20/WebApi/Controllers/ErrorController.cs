@@ -13,10 +13,9 @@ namespace WebApi.Controllers
             var exHandlerFeature = HttpContext.Features.Get<IExceptionHandlerFeature>();
             var ex = exHandlerFeature?.Error;
 
-            //TODO
             if (ex is DbUpdateException)
             {
-                return Problem(title: ex.InnerException.Message); 
+                return Problem(title: ex.InnerException?.Message ?? ex.Message); 
             }
 
             return Problem();

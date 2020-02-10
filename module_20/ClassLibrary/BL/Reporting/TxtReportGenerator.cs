@@ -19,7 +19,7 @@ namespace ClassLibrary.BL.Reporting
 
             foreach (var attendance in attendances)
             {
-                sb.AppendLine(attendance.ToString()); //TODO Format
+                sb.AppendLine(attendance.ToString());
             }
 
             return new Report() { Content = sb.ToString(), ContentType = "text/plain" };

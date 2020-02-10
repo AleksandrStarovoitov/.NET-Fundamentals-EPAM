@@ -15,7 +15,7 @@ namespace ClassLibrary.BL.Model
 
         public override string ToString()
         {
-            return $"Id: {Id}, LessonInScheduleId: {LessonInScheduleId}, StudentId: {StudentId}, IsPresent: {IsPresent}"; // TODO
+            return $"Id: {Id}, LessonInScheduleId: {LessonInScheduleId}, StudentId: {StudentId}, IsPresent: {IsPresent}";
         }
     }
 }
