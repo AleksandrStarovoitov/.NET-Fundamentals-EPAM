@@ -1,4 +1,5 @@
 using ClassLibrary.BL.Interfaces.Notifications;
+using ClassLibrary.BL.Interfaces.Reporting;
 using ClassLibrary.BL.Interfaces.Repositories;
 using ClassLibrary.BL.Interfaces.Services;
 using ClassLibrary.BL.Notifications;
@@ -47,8 +48,8 @@ namespace WebApi
             services.AddScoped<IStudentRepository, StudentRepository>();
             services.AddScoped<ITeacherRepository, TeacherRepository>();
 
-            services.AddScoped<XmlReportGenerator>();
-            services.AddScoped<TxtReportGenerator>();
+            services.AddScoped<IXmlReportGenerator, XmlReportGenerator>();
+            services.AddScoped<ITxtReportGenerator, TxtReportGenerator>();
 
             services.AddScoped<IEmailNotifier, EmailNotifier>();
             services.AddScoped<ISmsNotifier, SmsNotifier>();

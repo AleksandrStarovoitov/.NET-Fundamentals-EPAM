@@ -8,7 +8,7 @@ using ClassLibrary.BL.Model;
 
 namespace ClassLibrary.BL.Reporting
 {
-    public class XmlReportGenerator : IReportGenerator
+    public class XmlReportGenerator : IXmlReportGenerator
     {
         public Report GenerateReport(IEnumerable<Attendance> attendances)
         {

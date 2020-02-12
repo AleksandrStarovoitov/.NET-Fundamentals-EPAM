@@ -1,6 +1,4 @@
 ﻿namespace ClassLibrary.BL.Interfaces.Notifications
 {
-    public interface IEmailNotifier : INotifier
-    {
-    }
+    public interface IEmailNotifier : INotifier { }
 }

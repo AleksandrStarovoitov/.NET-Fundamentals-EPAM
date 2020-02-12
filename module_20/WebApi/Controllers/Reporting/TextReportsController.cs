@@ -1,4 +1,5 @@
-﻿using ClassLibrary.BL.Reporting;
+﻿using ClassLibrary.BL.Interfaces.Reporting;
+using ClassLibrary.BL.Reporting;
 using ClassLibrary.DAL;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,8 +7,8 @@ namespace WebApi.Controllers.Reporting
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TextReportsController : ReportsController<TxtReportGenerator>
+    public class TextReportsController : ReportsController
     {
-        public TextReportsController(TxtReportGenerator reportGenerator, UniversityContext context) : base(reportGenerator, context) { }
+        public TextReportsController(ITxtReportGenerator reportGenerator, UniversityContext context) : base(reportGenerator, context) { }
     }
 }

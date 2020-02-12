@@ -6,7 +6,7 @@ using ClassLibrary.BL.Model;
 
 namespace ClassLibrary.BL.Reporting
 {
-    public class TxtReportGenerator : IReportGenerator
+    public class TxtReportGenerator : ITxtReportGenerator
     {
         public Report GenerateReport(IEnumerable<Attendance> attendances)
         {

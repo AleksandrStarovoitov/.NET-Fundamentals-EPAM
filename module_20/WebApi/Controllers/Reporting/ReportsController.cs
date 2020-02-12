@@ -9,12 +9,11 @@ namespace WebApi.Controllers.Reporting
 {
     [Route("api/[controller]")]
     [ApiController]
-    public abstract class ReportsController<TReportGenerator> : ControllerBase 
-        where TReportGenerator : IReportGenerator
+    public abstract class ReportsController : ControllerBase
     {
         private readonly ReportService reportService;
 
-        protected ReportsController(TReportGenerator reportGenerator, UniversityContext context)
+        protected ReportsController(IReportGenerator reportGenerator, UniversityContext context)
         {
             reportService = new ReportService(reportGenerator, context);
         }
