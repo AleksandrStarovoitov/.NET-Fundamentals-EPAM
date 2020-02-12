@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using ClassLibrary.BL.Interfaces;
@@ -68,6 +69,11 @@ namespace ClassLibrary.DAL
         public async Task<int> CountAsync(Expression<Func<TEntity, bool>> predicate)
         {
             return await context.Set<TEntity>().CountAsync(predicate);
+        }
+
+        public async Task<double> AverageAsync(Expression<Func<TEntity, bool>> wherePredicate, Expression<Func<TEntity, double>> averageSelector)
+        {
+            return await context.Set<TEntity>().Where(wherePredicate).AverageAsync(averageSelector);
         }
     }
 }

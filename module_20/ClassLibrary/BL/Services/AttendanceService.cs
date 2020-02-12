@@ -23,10 +23,9 @@ namespace ClassLibrary.BL.Services
             
             var count = await repository.CountAsync(attendance => 
                 attendance.StudentId == entity.StudentId && !attendance.IsPresent);
-
             if (count > 3)
             {
-                notifier.SendNotification($"Student with id = {entity.StudentId} was absent > 3 times. Email sent.");
+                notifier?.SendNotification($"Student with id = {entity.StudentId} was absent > 3 times. Email sent.");
             }
 
             return attendanceFromDb;

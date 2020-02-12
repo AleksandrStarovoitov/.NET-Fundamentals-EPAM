@@ -2,7 +2,5 @@
 
 namespace ClassLibrary.BL.Interfaces.Repositories
 {
-    public interface IGradeRepository : IIncludeAsyncRepository<Grade>
-    {
-    }
+    public interface IGradeRepository : IIncludeAsyncRepository<Grade> { }
 }

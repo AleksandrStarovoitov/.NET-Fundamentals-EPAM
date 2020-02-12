@@ -66,14 +66,14 @@ namespace ClassLibrary.DAL
                 new Attendance() { Id = 8, LessonInScheduleId = 2, StudentId = 4, IsPresent = true });
 
             modelBuilder.Entity<Grade>().HasData(
-                new Grade() { Id = 1, StudentId = 1, LessonInScheduleId = 1, Mark = 0 },
+                new Grade() { Id = 1, StudentId = 1, LessonInScheduleId = 1, Mark = 1 },
                 new Grade() { Id = 2, StudentId = 2, LessonInScheduleId = 1, Mark = 4 },
                 new Grade() { Id = 3, StudentId = 3, LessonInScheduleId = 1, Mark = 5 },
                 new Grade() { Id = 4, StudentId = 4, LessonInScheduleId = 1, Mark = 4 },
-                new Grade() { Id = 5, StudentId = 1, LessonInScheduleId = 2, Mark = 0 },
+                new Grade() { Id = 5, StudentId = 1, LessonInScheduleId = 2, Mark = 1 },
                 new Grade() { Id = 6, StudentId = 2, LessonInScheduleId = 2, Mark = 5 },
-                new Grade() { Id = 7, StudentId = 3, LessonInScheduleId = 2, Mark = 0 },
-            new Grade() { Id = 8, StudentId = 4, LessonInScheduleId = 2, Mark = 3 });
+                new Grade() { Id = 7, StudentId = 3, LessonInScheduleId = 2, Mark = 1 },
+                new Grade() { Id = 8, StudentId = 4, LessonInScheduleId = 2, Mark = 3 });
         }
     }
 }

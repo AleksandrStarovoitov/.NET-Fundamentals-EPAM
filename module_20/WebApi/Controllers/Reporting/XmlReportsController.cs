@@ -1,5 +1,4 @@
 ﻿using ClassLibrary.BL.Interfaces.Reporting;
-using ClassLibrary.BL.Reporting;
 using ClassLibrary.DAL;
 using Microsoft.AspNetCore.Mvc;
 

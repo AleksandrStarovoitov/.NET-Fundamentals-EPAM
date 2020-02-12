@@ -14,5 +14,7 @@ namespace ClassLibrary.BL.Interfaces.Repositories
         Task<T> DeleteAsync(int id);
         Task<int> CountAsync();
         Task<int> CountAsync(Expression<Func<T, bool>> predicate);
+        Task<double> AverageAsync(Expression<Func<T, bool>> wherePredicate,
+            Expression<Func<T, double>> averageSelector);
     }
 }
