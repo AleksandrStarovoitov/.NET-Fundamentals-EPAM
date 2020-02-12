@@ -1,10 +1,3 @@
-using ClassLibrary.BL.Interfaces.Notifications;
-using ClassLibrary.BL.Interfaces.Reporting;
-using ClassLibrary.BL.Interfaces.Repositories;
-using ClassLibrary.BL.Interfaces.Services;
-using ClassLibrary.BL.Notifications;
-using ClassLibrary.BL.Reporting;
-using ClassLibrary.BL.Services;
 using ClassLibrary.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,27 +25,10 @@ namespace WebApi
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContextExt<UniversityContext>(connectionString);
 
-            services.AddScoped<IAttendanceService, AttendanceService>();
-            services.AddScoped<IGradeService, GradeService>();
-            services.AddScoped<IHomeworkService, HomeworkService>();
-            services.AddScoped<ILessonInScheduleService, LessonInScheduleService>();
-            services.AddScoped<ILessonService, LessonService>();
-            services.AddScoped<IStudentService, StudentService>();
-            services.AddScoped<ITeacherService, TeacherService>();
-            
-            services.AddScoped<IAttendanceRepository, AttendanceRepository>();
-            services.AddScoped<IGradeRepository, GradeRepository>();
-            services.AddScoped<IHomeworkRepository, HomeworkRepository>();
-            services.AddScoped<ILessonInScheduleRepository, LessonInScheduleRepository>();
-            services.AddScoped<ILessonRepository, LessonRepository>();
-            services.AddScoped<IStudentRepository, StudentRepository>();
-            services.AddScoped<ITeacherRepository, TeacherRepository>();
-
-            services.AddScoped<IXmlReportGenerator, XmlReportGenerator>();
-            services.AddScoped<ITxtReportGenerator, TxtReportGenerator>();
-
-            services.AddScoped<IEmailNotifier, EmailNotifier>();
-            services.AddScoped<ISmsNotifier, SmsNotifier>();
+            services.AddServices();
+            services.AddRepositories();
+            services.AddReporting();
+            services.AddNotifiers();
 
             services.AddSwaggerDocument(config =>
             {
