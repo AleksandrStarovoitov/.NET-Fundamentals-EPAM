@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using ClassLibrary.BL.Interfaces;
+using ClassLibrary.BL.Interfaces.Reporting;
 using ClassLibrary.BL.Reporting;
 using ClassLibrary.BL.Services;
 using ClassLibrary.DAL;

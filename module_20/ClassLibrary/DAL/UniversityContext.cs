@@ -16,7 +16,7 @@ namespace ClassLibrary.DAL
 
         public UniversityContext(DbContextOptions<UniversityContext> options) : base(options)
         {
-            Database.EnsureDeleted(); //TODO
+            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 

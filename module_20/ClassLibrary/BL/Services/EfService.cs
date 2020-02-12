@@ -21,7 +21,7 @@ namespace ClassLibrary.BL.Services
             this.logger = logger;
         }
 
-        public async Task<TEntity> AddAsync(TEntity entity)
+        public virtual async Task<TEntity> AddAsync(TEntity entity)
         {
             try
             {

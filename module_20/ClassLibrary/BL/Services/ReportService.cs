@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using ClassLibrary.BL.Interfaces;
+using ClassLibrary.BL.Interfaces.Reporting;
 using ClassLibrary.BL.Reporting;
 using ClassLibrary.DAL;
 using Microsoft.EntityFrameworkCore;

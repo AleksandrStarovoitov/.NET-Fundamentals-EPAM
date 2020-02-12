@@ -1,9 +1,9 @@
-﻿using ClassLibrary.BL.Interfaces;
+﻿using ClassLibrary.BL.Interfaces.Notifications;
 using Microsoft.Extensions.Logging;
 
 namespace ClassLibrary.BL.Notifications
 {
-    public class SmsNotifier : INotifier
+    public class SmsNotifier : ISmsNotifier
     {
         private readonly ILogger<SmsNotifier> logger;
 
@@ -12,9 +12,9 @@ namespace ClassLibrary.BL.Notifications
             this.logger = logger;
         }
 
-        public void SendNotification()
+        public void SendNotification(string notification)
         {
-            logger?.LogInformation("SMS notification is sent.");
+            logger?.LogInformation(notification);
         }
     }
 }

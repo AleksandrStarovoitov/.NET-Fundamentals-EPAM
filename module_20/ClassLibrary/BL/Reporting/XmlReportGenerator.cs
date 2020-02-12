@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
-using ClassLibrary.BL.Interfaces;
+using ClassLibrary.BL.Interfaces.Reporting;
 using ClassLibrary.BL.Model;
 
 namespace ClassLibrary.BL.Reporting

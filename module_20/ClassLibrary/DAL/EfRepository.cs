@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using ClassLibrary.BL.Interfaces;
 using ClassLibrary.BL.Interfaces.Repositories;
@@ -56,6 +58,16 @@ namespace ClassLibrary.DAL
             await context.SaveChangesAsync();
 
             return entity;
+        }
+
+        public async Task<int> CountAsync()
+        {
+            return await context.Set<TEntity>().CountAsync();
+        }
+
+        public async Task<int> CountAsync(Expression<Func<TEntity, bool>> predicate)
+        {
+            return await context.Set<TEntity>().CountAsync(predicate);
         }
     }
 }

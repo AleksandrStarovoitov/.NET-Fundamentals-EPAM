@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using ClassLibrary.BL.Interfaces;
+using ClassLibrary.BL.Interfaces.Reporting;
 using ClassLibrary.BL.Model;
 
 namespace ClassLibrary.BL.Reporting

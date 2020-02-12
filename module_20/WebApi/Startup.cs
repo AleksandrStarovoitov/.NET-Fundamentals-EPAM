@@ -1,5 +1,7 @@
+using ClassLibrary.BL.Interfaces.Notifications;
 using ClassLibrary.BL.Interfaces.Repositories;
 using ClassLibrary.BL.Interfaces.Services;
+using ClassLibrary.BL.Notifications;
 using ClassLibrary.BL.Reporting;
 using ClassLibrary.BL.Services;
 using ClassLibrary.DAL;
@@ -47,6 +49,9 @@ namespace WebApi
 
             services.AddScoped<XmlReportGenerator>();
             services.AddScoped<TxtReportGenerator>();
+
+            services.AddScoped<IEmailNotifier, EmailNotifier>();
+            services.AddScoped<ISmsNotifier, SmsNotifier>();
 
             services.AddSwaggerDocument(config =>
             {
