@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using ClassLibrary.BL.Interfaces;
 using ClassLibrary.BL.Interfaces.Repositories;
@@ -68,6 +70,36 @@ namespace ClassLibrary.BL.Services
                 logger.LogError(ex, "Updating entity of type {0} caused an error", typeof(TEntity));
                 throw; //TODO Custom exception?
             }
+        }
+        
+        public async Task<int> CountAsync()
+        {
+            return await repository.CountAsync();
+        }
+        
+        public async Task<int> CountAsync(Expression<Func<TEntity, bool>> predicate)
+        {
+            if (predicate == null)
+            {
+                throw new ArgumentNullException(nameof(predicate));
+            }
+            
+            return await repository.CountAsync(predicate);
+        }
+        
+        public async Task<double> AverageAsync(Expression<Func<TEntity, bool>> wherePredicate, Expression<Func<TEntity, double>> averageSelector)
+        {
+            if (wherePredicate == null)
+            {
+                throw new ArgumentNullException(nameof(wherePredicate));
+            }
+            
+            if (averageSelector == null)
+            {
+                throw new ArgumentNullException(nameof(averageSelector));
+            }
+            
+            return await repository.AverageAsync(wherePredicate, averageSelector);
         }
     }
 }

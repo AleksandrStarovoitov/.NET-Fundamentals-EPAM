@@ -20,9 +20,10 @@ namespace ClassLibrary.BL.Services
         public override async Task<Attendance> AddAsync(Attendance entity)
         {
             var attendanceFromDb = await base.AddAsync(entity);
-            
-            var count = await repository.CountAsync(attendance => 
+           
+            var count = await CountAsync(attendance => 
                 attendance.StudentId == entity.StudentId && !attendance.IsPresent);
+            
             if (count > 3)
             {
                 notifier?.SendNotification($"Student with id = {entity.StudentId} was absent > 3 times. Email sent.");

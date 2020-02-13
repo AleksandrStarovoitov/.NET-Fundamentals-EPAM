@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using ClassLibrary.BL.Model;
 using ClassLibrary.DAL;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,7 @@ namespace ClassLibrary.Tests
         public void AddAsync_Student_AddsCorrectly()
         {
             using var context = new UniversityContext(builder.Options);
+            
             var repository = new StudentRepository(context);
 
             var student = new Student() { Name = "TestStudent1" };
@@ -79,6 +81,45 @@ namespace ClassLibrary.Tests
             var initialNumber = 4;
 
             var count = repository.GetAllAsync().Result.Count;
+
+            Assert.That(count, Is.EqualTo(initialNumber));
+        }
+        
+        [Test]
+        public async Task CountAsync_Student_CountsCorrectly()
+        {
+            using var context = new UniversityContext(builder.Options);
+            var repository = new StudentRepository(context);
+            // From UniversityContext OnModelCreating
+            var initialNumber = 4;
+
+            var count = await repository.CountAsync();
+
+            Assert.That(count, Is.EqualTo(initialNumber));
+        }
+        
+        [Test]
+        public async Task CountExpressionsAsync_Grades_CountsCorrectly()
+        {
+            using var context = new UniversityContext(builder.Options);
+            var repository = new GradeRepository(context);
+            // From UniversityContext OnModelCreating
+            var initialNumber = 2;
+
+            var count = await repository.CountAsync(grade => grade.StudentId == 3);
+
+            Assert.That(count, Is.EqualTo(initialNumber));
+        }
+        
+        [Test]
+        public async Task AverageAsync_Student_CalculatesAverageCorrectly()
+        {
+            using var context = new UniversityContext(builder.Options);
+            var repository = new GradeRepository(context);
+            // From UniversityContext OnModelCreating
+            var initialNumber = 3;
+
+            var count = await repository.AverageAsync(grade => grade.StudentId == 3, grade => grade.Mark);
 
             Assert.That(count, Is.EqualTo(initialNumber));
         }

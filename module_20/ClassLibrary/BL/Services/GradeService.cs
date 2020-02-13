@@ -21,7 +21,7 @@ namespace ClassLibrary.BL.Services
         {
             var gradeFromDb = await base.AddAsync(entity);
 
-            var average = await repository.AverageAsync(g =>
+            var average = await AverageAsync(g =>
                 g.StudentId == entity.StudentId, g => g.Mark);
 
             if (average < 4)
