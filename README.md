@@ -1,4 +1,4 @@
-# Solutions for EPAM .NET Fundamentals training tasks
+# Solutions for ".NET Fundamentals" training tasks at EPAM. January 2020.
 
 - M02: Types.
 - M03: Strings formatting, parsing, comparing.
